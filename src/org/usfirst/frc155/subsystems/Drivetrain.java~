@@ -21,7 +21,6 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 
@@ -67,10 +66,10 @@ public class Drivetrain extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     public void takeJoystickInputs(Joystick left, Joystick right) {
-    	robotDrive4.tankDrive(left,right);
+    	robotDrive2.tankDrive(left,right);
     }
     public void stop() {
-    	robotDrive4.drive(0, 0);
+    	robotDrive.2drive(0, 0);
     }
     @Override
     public void periodic() {
