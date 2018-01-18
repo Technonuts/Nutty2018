@@ -43,7 +43,7 @@ public class TankDrive extends Command {
     }
     
     protected void execute() {
-    	Robot.drivetrain.takeJoystickInputs(Robot.oi.getLeftStick(),Robot.oi.getRightStick());
+    	Robot.drivetrain.tankDrivejoy(Robot.oi.getLeftStick(),Robot.oi.getRightStick());
     }
     // Called repeatedly when this Command is scheduled to run
     @Override

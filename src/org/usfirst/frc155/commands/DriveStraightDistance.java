@@ -32,6 +32,7 @@ public class DriveStraightDistance extends Command {
 	
 	private double m_heading;
 	private double m_drift;
+	private double	 maxTurn = .25;
 	
 	private double m_speed;
 	private double m_turnrate;
@@ -76,12 +77,12 @@ public class DriveStraightDistance extends Command {
 		}
     	
     	m_drift = m_heading - Robot.drivetrain.getGyro();
-    	if (m_heading * kPAng * m_drift >= m_heading) {
-    		m_turnrate = m_heading;
+    	if (maxTurn * kPAng * m_drift >= maxTurn) {
+    		m_turnrate = maxTurn;
     	}
     	    			
     	else {
-    		m_speed = m_heading * kPAng * m_drift;		
+    		m_turnrate = maxTurn * kPAng * m_drift;		
     	}
     	
     	Robot.drivetrain.arcDrive(m_speed, m_turnrate);
