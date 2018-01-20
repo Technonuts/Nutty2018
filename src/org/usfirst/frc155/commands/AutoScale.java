@@ -29,6 +29,7 @@ private int angle;
     	addSequential(new DriveStraightDistance(distance,.25));
     	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
+    	//close claw
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

@@ -7,29 +7,32 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class oppositeSwitch extends CommandGroup {
+public class oppositeScale extends CommandGroup {
 	private int angle;
 	private double distance;
 	private double shortDistance = 6;
 	private double longDistance = 8;
+	private double firstDistance = 10;
+	private double secondDistance;
+	private double thirdDistance;
 	
-	
-	public oppositeSwitch(int position, int side) {
+	public oppositeScale(int position, int side) {
 		if(position == 1 )
     		distance = shortDistance;
     	else distance = longDistance;
     	if(side==1) {
-    		angle= -90;
+    		angle =-90;
     	}
     	else {
     		angle= 90;
     	}
     
-		addSequential(new DriveStraightDistance(3,.25));
+		addSequential(new DriveStraightDistance(firstDistance,.25));
 		addSequential(new TurnDriveAngle(angle,.5));
 		addSequential(new DriveStraightDistance(distance ,.25));
 		addSequential(new TurnDriveAngle(-angle,.5));
-		addParallel(new  MoveLift(Robot.elevator.FENCEHEIGHT));
+		
+		addParallel(new  MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
 		addSequential(new DriveStraightDistance(1,.25));
 		addSequential(new TurnDriveAngle(-angle,.5));
 		addSequential(new DriveStraightDistance(1,.25));
