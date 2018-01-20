@@ -55,6 +55,7 @@ public class GetCube extends CommandGroup {
     	//open gripper
     	addSequential(new DriveStraightDistance(-secondStraightDistance, speed));
     	//speeds have to be adjusted
+    	
     
     	
    
