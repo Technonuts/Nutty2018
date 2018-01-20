@@ -8,14 +8,30 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoSwitch extends CommandGroup {
+private double distance;
+private double shortDistance = 2;
+private double longDistance = 3;
+private int angle;
+private double firstDistance;
 
-	
-    public AutoSwitch(int position) {
-    	
-    	addSequential(new DriveStraightDistance(5,.5));
-    	addParallel(new MoveLift(Robot.elevator.FENCEHEIGHT));
-    	//claw release
+
+    public AutoSwitch(int position, int side) {
+    	if(position == 1 )
+    		distance = shortDistance;
+    	else distance = longDistance;
+    	if(side==1) {
+    		angle =90;
+    	}
+    	else {
+    		angle=-90;
+    	}
+    	addSequential(new DriveStraightDistance(firstDistance,.5));
+    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
+    	addSequential(new TurnDriveAngle(angle,.5));
+    	addSequential(new DriveStraightDistance(distance,.25));
+    	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
+    	//close claw
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
