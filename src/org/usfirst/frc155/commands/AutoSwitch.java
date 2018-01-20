@@ -7,21 +7,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutoScaleLeft extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
+public class AutoSwitch extends CommandGroup {
 
-    public AutoScaleLeft(int position) {
-    	if(position == 1 )
-    		distance = shortDistance;
-    	else distance = longDistance;
-    	addSequential(new DriveStraightDistance(10,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
-    	addSequential(new TurnDriveAngle(90,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
-    	//Add sequential "release" code 
+	
+    public AutoSwitch(int position) {
+    	
+    	addSequential(new DriveStraightDistance(5,.5));
+    	addParallel(new MoveLift(Robot.elevator.FENCEHEIGHT));
+    	//claw release
     	addSequential(new DriveStraightDistance(-1,.5));
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

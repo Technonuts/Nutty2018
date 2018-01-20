@@ -12,6 +12,10 @@
 package org.usfirst.frc155;
 
 import org.usfirst.frc155.commands.AutoScale;
+import org.usfirst.frc155.commands.AutoSwitch;
+import org.usfirst.frc155.commands.DriveStraightDistance;
+import org.usfirst.frc155.commands.GetCube;
+import org.usfirst.frc155.commands.oppositeSwitch;
 import org.usfirst.frc155.subsystems.Claw;
 import org.usfirst.frc155.subsystems.Drivetrain;
 import org.usfirst.frc155.subsystems.Elevator;
@@ -194,9 +198,11 @@ public class Robot extends TimedRobot {
 			}
 			else if(switchValue ==position) {
 				//run switch command
+				new AutoSwitch(position);
 			}
 			else {
 				//cross line 
+				new DriveStraightDistance(5,0.5);
 			}
 			
 		}
@@ -204,9 +210,11 @@ public class Robot extends TimedRobot {
 			//this is switch only code
 			if(switchValue==position) {
 				//run switch command
+				new AutoSwitch(position);
 			}
 			else {
 				//run other switch command
+			new oppositeSwitch(position);
 			}
 			
 		}
@@ -229,6 +237,9 @@ public class Robot extends TimedRobot {
 			else if(scaleValue==position) {
 				//run switch command 
 				//get new cube
+				new GetCube(position);
+				
+				
 				//run switch command
 			}
 			else {

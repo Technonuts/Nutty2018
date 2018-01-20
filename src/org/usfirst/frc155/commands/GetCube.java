@@ -1,27 +1,16 @@
 package org.usfirst.frc155.commands;
 
-import org.usfirst.frc155.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AutoScaleRight extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
+public class GetCube extends CommandGroup {
 
-    public AutoScaleRight(int position) {
-    	if(position == 1 )
-    		distance = shortDistance;
-    	else distance = longDistance;
-    	addSequential(new DriveStraightDistance(10,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
-    	addSequential(new TurnDriveAngle(-90,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
-    	//Add sequential "release" code 
-    	addSequential(new DriveStraightDistance(-1,.5));
+	private int angle;
+	
+    public GetCube(int position) {
+    	//if 
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
