@@ -237,7 +237,7 @@ public class Robot extends TimedRobot {
 			else if(scaleValue==position) {
 				//run switch command 
 				//get new cube
-				new GetCube(position);
+				//new GetCube(position);
 				
 				
 				//run switch command

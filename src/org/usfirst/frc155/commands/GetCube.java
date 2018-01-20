@@ -1,5 +1,7 @@
 package org.usfirst.frc155.commands;
 
+import org.usfirst.frc155.Robot;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -8,9 +10,56 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GetCube extends CommandGroup {
 
 	private int angle;
+	private int firstStraightDistance;
+	private int secondStraightDistance;
+	private int driveToCube;
+	private int moveToFence;
+	private int speed;
+	private int turnSpeed;
+	private int shortDistance;
+	private int longDistance;
 	
-    public GetCube(int position) {
-    	//if 
+	
+	
+	
+	
+	
+	
+	
+	
+    public GetCube(int robotPosition, int switchPosition) {
+    	if(robotPosition==1) {
+    		angle = 90;
+    	}
+    	else {
+    		angle = -90;
+    		
+    	}
+    	if(robotPosition==switchPosition) {
+    		firstStraightDistance = shortDistance;
+    		
+    	}
+    	else {
+    		firstStraightDistance = longDistance;
+    		
+    	}
+    	
+    	addSequential(new DriveStraightDistance(firstStraightDistance, speed));
+    	addSequential(new TurnDriveAngle(-angle, turnSpeed));
+    	addSequential(new DriveStraightDistance(secondStraightDistance, speed));
+    	//add open gripper
+    	addSequential(new DriveStraightDistance(driveToCube, speed));
+    	//add close gripper
+    	addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
+    	addSequential(new DriveStraightDistance(moveToFence, speed));
+    	//open gripper
+    	addSequential(new DriveStraightDistance(-secondStraightDistance, speed));
+    	//speeds have to be adjusted
+    
+   
+    	
+    	
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
