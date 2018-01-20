@@ -11,15 +11,17 @@
 
 package org.usfirst.frc155;
 
+import org.usfirst.frc155.commands.AutoScale;
+import org.usfirst.frc155.subsystems.Claw;
+import org.usfirst.frc155.subsystems.Drivetrain;
+import org.usfirst.frc155.subsystems.Elevator;
+
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc155.commands.*;
-import org.usfirst.frc155.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -46,6 +48,7 @@ public class Robot extends TimedRobot {
     private int megaMode = 2;
     private int twoMode = 3;
     private int mode;
+    private int travelLength;
     
     
     
@@ -129,7 +132,12 @@ public class Robot extends TimedRobot {
         autonomousCommand = chooser.getSelected();
         position = (int)positionChooser.getSelected();
         mode = (int)autoChooser.getSelected();
-        
+        if(position>=4) {
+        	travelLength = 1;
+        }
+        else {
+        	travelLength =0;
+        }
         
         
         // schedule the autonomous command (example)
@@ -180,19 +188,52 @@ public class Robot extends TimedRobot {
 		
 		if (mode == scaleMode) {
 			//this is scale code
+			if(scaleValue==position) {
+				//run scale command
+				new AutoScale( travelLength,position); 
+			}
+			else if(switchValue ==position) {
+				//run switch command
+			}
+			else {
+				//cross line 
+			}
 			
 		}
 		else if (mode == switchMode) {
 			//this is switch only code
+			if(switchValue==position) {
+				//run switch command
+			}
+			else {
+				//run other switch command
+			}
 			
 		}
 		else if (mode == megaMode) {
 			//this is to try and get the sca'e on the opposite position if it's not on our side
-			
+			if(scaleValue==position) {
+				//run scale command
+			}
+			else {
+				//go to other side of scale
+			}
 		}
 		else if (mode == twoMode) {
 			//this is when you are trying to place two boxes
-			
+			if(scaleValue==position) {
+				//run scale command
+				//run get new cube
+				//run switch command 
+			}
+			else if(scaleValue==position) {
+				//run switch command 
+				//get new cube
+				//run switch command
+			}
+			else {
+				//go to other switch
+			}
 		}
 		else {
 			//do nothing
