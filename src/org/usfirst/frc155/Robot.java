@@ -244,6 +244,7 @@ public class Robot extends TimedRobot {
 			}
 			else {
 				//go to other switch
+				//test
 			}
 		}
 		else {
