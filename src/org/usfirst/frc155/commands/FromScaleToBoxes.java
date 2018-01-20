@@ -7,32 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class AutoSwitch extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
-private int angle;
-private double firstDistance;
+public class FromScaleToBoxes extends CommandGroup {
 
-
-    public AutoSwitch(int position, int side) {
-    	if(position == 1 )
-    		distance = shortDistance;
-    	else distance = longDistance;
-    	if(side==1) {
-    		angle =90;
-    	}
-    	else {
-    		angle=-90;
-    	}
-    	addSequential(new DriveStraightDistance(firstDistance,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
-    	addSequential(new TurnDriveAngle(angle,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
-    	//Add sequential "release" code 
-    	addSequential(new DriveStraightDistance(-1,.5));
-    	//close claw
-    	
+    public FromScaleToBoxes(int position) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -49,5 +26,24 @@ private double firstDistance;
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	int angle;
+    	boolean firstTurn = false;
+    	if(position == 1) {
+    		addSequential(new TurnRight());
+    		firstTurn = true;
+    	}
+    	else
+    		addSequential(new TurnLeft());
+    	
+    	addSequential(new DriveStraightDistance(5, .5));
+    	
+    	if(firstTurn == true)
+    		addSequential(new TurnLeft());
+    	else
+    		addSequential(new TurnRight());
+    	
+    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
+    	//adjust lengths for drive distance
     }
 }

@@ -15,6 +15,7 @@ import org.usfirst.frc155.commands.AutoScale;
 import org.usfirst.frc155.commands.AutoSwitch;
 import org.usfirst.frc155.commands.DriveStraightDistance;
 import org.usfirst.frc155.commands.GetCube;
+import org.usfirst.frc155.commands.oppositeScale;
 import org.usfirst.frc155.commands.oppositeSwitch;
 import org.usfirst.frc155.subsystems.Claw;
 import org.usfirst.frc155.subsystems.Drivetrain;
@@ -198,7 +199,7 @@ public class Robot extends TimedRobot {
 			}
 			else if(switchValue ==position) {
 				//run switch command
-				new AutoSwitch(position);
+				new AutoSwitch(travelLength, position);
 			}
 			else {
 				//cross line 
@@ -210,11 +211,11 @@ public class Robot extends TimedRobot {
 			//this is switch only code
 			if(switchValue==position) {
 				//run switch command
-				new AutoSwitch(position);
+				new AutoSwitch(travelLength, position);
 			}
 			else {
 				//run other switch command
-			new oppositeSwitch(position);
+			new oppositeSwitch(travelLength, position);
 			}
 			
 		}
@@ -222,20 +223,25 @@ public class Robot extends TimedRobot {
 			//this is to try and get the sca'e on the opposite position if it's not on our side
 			if(scaleValue==position) {
 				//run scale command
+				new AutoScale( travelLength,position); 
 			}
 			else {
 				//go to other side of scale
+				new oppositeScale(travelLength, position);
+				
 			}
 		}
 		else if (mode == twoMode) {
 			//this is when you are trying to place two boxes
 			if(scaleValue==position) {
 				//run scale command
+				new AutoScale( travelLength,position); 
 				//run get new cube
 				//run switch command 
 			}
 			else if(scaleValue==position) {
 				//run switch command 
+				new AutoScale( travelLength,position); 
 				//get new cube
 				//new GetCube(position);
 				

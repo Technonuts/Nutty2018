@@ -1,35 +1,14 @@
 package org.usfirst.frc155.commands;
 
-import org.usfirst.frc155.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
+ *
  */
-public class AutoScale extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
-private int angle;
+public class TurnRight extends CommandGroup {
 
-    public AutoScale(int position, int side) {
-    	if(position == 1 )
-    		distance = shortDistance;
-    	else distance = longDistance;
-    	if(side==1) {
-    		angle =90;
-    	}
-    	else {
-    		angle=-90;
-    	}
-    	addSequential(new DriveStraightDistance(10,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
-    	addSequential(new TurnDriveAngle(angle,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
-    	//Add sequential "release" code 
-    	addSequential(new DriveStraightDistance(-1,.5));
-    	//close claw
+    public TurnRight() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -46,5 +25,7 @@ private int angle;
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new TurnDriveAngle(90,.5));
+    	//make negative if robot turns left instead of right
     }
 }
