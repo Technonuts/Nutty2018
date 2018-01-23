@@ -8,16 +8,30 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TwoCubeAuto extends CommandGroup {
 
     public TwoCubeAuto(int position, int scaleValue, int switchValue, int travelLength) {
+    	
     	if(position==scaleValue) {
-    		new AutoScale( travelLength, position); 
+    		//2 scale
+    		addSequential(new AutoScale( travelLength,position)); 
+    		addSequential(new FromScaleToBoxes(position));
+    		addSequential(new GetCube(position, switchValue));
+    		addSequential(new CubeToScale(position));
     		
+    	}
+    	else if(position==switchValue){
+    		//2 switches
+    		addSequential(new AutoSwitch( travelLength,position)); 
+    		addSequential(new FromSwitchToBoxes(position));
+    		addSequential(new GetCube(position, switchValue));	
+    		addSequential(new CubeToSwitch());
     	}
     	else {
-    		new oppositeScale(travelLength, position);
-    		
+    		//2 switches opposite
+    		addSequential(new oppositeSwitch(travelLength, position));
+    		addSequential(new FromSwitchToBoxes(position));
+    		addSequential(new GetCube(position, switchValue));	
+    		addSequential(new CubeToSwitch());
     	}
-    	new FromScaleToBoxes(position);
-    	new GetCube(position, switchValue);
+    	
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());
