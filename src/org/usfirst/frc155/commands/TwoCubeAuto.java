@@ -9,10 +9,12 @@ public class TwoCubeAuto extends CommandGroup {
 
     public TwoCubeAuto(int position, int scaleValue, int switchValue, int travelLength) {
     	if(position==scaleValue) {
-    		new AutoScale( travelLength,position); 
+    		new AutoScale( travelLength, position); 
+    		
     	}
     	else {
-    		new oppositeScale(travelLength, position);	
+    		new oppositeScale(travelLength, position);
+    		
     	}
     	new FromScaleToBoxes(position);
     	new GetCube(position, switchValue);
