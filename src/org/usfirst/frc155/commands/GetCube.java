@@ -50,10 +50,6 @@ public class GetCube extends CommandGroup {
     	//add open gripper
     	addSequential(new DriveStraightDistance(driveToCube, speed));
     	//add close gripper
-    	addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
-    	addSequential(new DriveStraightDistance(moveToFence, speed));
-    	//open gripper
-    	addSequential(new DriveStraightDistance(-secondStraightDistance, speed));
     	//speeds have to be adjusted
     	
     
