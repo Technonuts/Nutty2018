@@ -1,36 +1,13 @@
 package org.usfirst.frc155.commands;
 
-import org.usfirst.frc155.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class AutoSwitch extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
-private int angle;
-private double firstDistance;
+public class DoubleScaleSwitch extends CommandGroup {
 
-
-    public AutoSwitch( int side) {
-    	
-    	if(side==1) {
-    		angle =90;
-    	}
-    	else {
-    		angle=-90;
-    	}
-    	addSequential(new DriveStraightDistance(firstDistance,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
-    	addSequential(new TurnDriveAngle(angle,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
-    	//Add sequential "release" code 
-    	addSequential(new DriveStraightDistance(-1,.5));
-   
-    	
+    public DoubleScaleSwitch(int position, int scaleValue, int switchValue, int travelLength) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -47,5 +24,9 @@ private double firstDistance;
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addSequential(new AutoScale( travelLength,position)); 
+		addSequential(new FromScaleToBoxes(position));
+		addSequential(new GetCube(position));
+		addSequential(new CubeToSwitch());
     }
 }

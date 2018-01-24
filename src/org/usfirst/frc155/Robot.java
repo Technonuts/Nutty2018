@@ -15,6 +15,8 @@ import org.usfirst.frc155.commands.AutoScale;
 import org.usfirst.frc155.commands.AutoSwitch;
 import org.usfirst.frc155.commands.DriveStraightDistance;
 import org.usfirst.frc155.commands.GetCube;
+import org.usfirst.frc155.commands.ToOtherSide;
+import org.usfirst.frc155.commands.ToPosition;
 import org.usfirst.frc155.commands.oppositeScale;
 import org.usfirst.frc155.commands.oppositeSwitch;
 import org.usfirst.frc155.subsystems.Claw;
@@ -195,11 +197,13 @@ public class Robot extends TimedRobot {
 			//this is scale code
 			if(scaleValue==position) {
 				//run scale command
+				new ToPosition();
 				new AutoScale( travelLength,position); 
 			}
 			else if(switchValue ==position) {
 				//run switch command
-				new AutoSwitch(travelLength, position);
+				new ToPosition();
+				new AutoSwitch( position);
 			}
 			else {
 				//cross line 
@@ -211,11 +215,16 @@ public class Robot extends TimedRobot {
 			//this is switch only code
 			if(switchValue==position) {
 				//run switch command
-				new AutoSwitch(travelLength, position);
+				new ToPosition();
+				new AutoSwitch (position);
 			}
 			else {
 				//run other switch command
-			new oppositeSwitch(travelLength, position);
+				new ToPosition();
+			     new ToOtherSide(position, travelLength);
+			     
+				 
+			//	new oppositeSwitch(travelLength, position);
 			}
 			
 		}
