@@ -28,7 +28,7 @@ public class DoubleSwitchScale extends CommandGroup {
     	//addSequential(new );
     	//addParallel(new );
     	
-    	addSequential(new AutoSwitch(position, side));
+    	addSequential(new AutoSwitch(position));
     	addSequential(new FromSwitchToBoxes(position));
     	addSequential(new GetCube(side));
     	addSequential(new CubeToScale(side));

@@ -10,7 +10,7 @@ public class DoubleSwitchAuto extends CommandGroup {
     public DoubleSwitchAuto(int position, int switchValue, int travelLength) {
     	addSequential(new AutoSwitch(position)); 
 		addSequential(new FromSwitchToBoxes(position));
-		addSequential(new GetCube(position, switchValue));	
+		addSequential(new GetCube(position));	
 		addSequential(new CubeToSwitch());
         // Add Commands here:
         // e.g. addSequential(new Command1());
