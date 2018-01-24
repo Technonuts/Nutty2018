@@ -9,14 +9,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutoScale extends CommandGroup {
 private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
+
 private int angle;
 
     public AutoScale(int position, int side) {
-    	if(position == 1 )
-    		distance = shortDistance;
-    	else distance = longDistance;
+
     	if(side==1) {
     		angle =90;
     	}
@@ -29,7 +26,7 @@ private int angle;
     	addSequential(new DriveStraightDistance(distance,.25));
     	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
-    	//close claw
+    	
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

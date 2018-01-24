@@ -19,7 +19,7 @@ public class TwoCubeAuto extends CommandGroup {
     	}
     	else if(position==switchValue){
     		//2 switches
-    		addSequential(new AutoSwitch( travelLength,position)); 
+    		addSequential(new AutoSwitch(position)); 
     		addSequential(new FromSwitchToBoxes(position));
     		addSequential(new GetCube(position, switchValue));	
     		addSequential(new CubeToSwitch());
