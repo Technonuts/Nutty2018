@@ -13,11 +13,9 @@ public class GetCube extends CommandGroup {
 	private int firstStraightDistance;
 	private int secondStraightDistance;
 	private int driveToCube;
-	private int moveToFence;
 	private int speed;
 	private int turnSpeed;
-	private int shortDistance;
-	private int longDistance;
+
 	
 	
 	
@@ -26,21 +24,12 @@ public class GetCube extends CommandGroup {
 	
 	
 	
-	
-    public GetCube(int robotPosition, int switchPosition) {
+    public GetCube(int robotPosition) {
     	if(robotPosition==1) {
     		angle = 90;
     	}
     	else {
     		angle = -90;
-    		
-    	}
-    	if(robotPosition==switchPosition) {
-    		firstStraightDistance = shortDistance;
-    		
-    	}
-    	else {
-    		firstStraightDistance = longDistance;
     		
     	}
     	
