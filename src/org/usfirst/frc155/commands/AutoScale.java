@@ -12,7 +12,7 @@ private double distance;
 
 private int angle;
 
-    public AutoScale(int position, int side) {
+    public AutoScale( int side) {
 
     	if(side==1) {
     		angle =90;
