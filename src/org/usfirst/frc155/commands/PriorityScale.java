@@ -12,18 +12,20 @@ public class PriorityScale extends CommandGroup {
     	if(position==scaleValue) {
     		//2 scale
     		
+    		addSequential(new ToPosition());
     		addSequential(new DoubleScaleAuto(position, scaleValue, travelLength));
     		
     	}
     	else if(position==switchValue){
     		//2 switches
     		
+    		addSequential(new ToPosition());
     		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));//DoubleSwitchAuto
     	}
     	else {
-    		//2 switches opposite - first move to the other side of the field
-    		//code to go to other side needed
+    		//2 switches opposite
     		
+    		addSequential(new ToOtherSide(switchValue, position));
     		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));
     		//other side and doubleSwitchAuto
     	}
