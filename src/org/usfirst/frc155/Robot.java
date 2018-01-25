@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 package org.usfirst.frc155;
 
 import org.usfirst.frc155.commands.AutoScale;
@@ -19,6 +18,10 @@ import org.usfirst.frc155.commands.DriveStraightDistance;
 import org.usfirst.frc155.commands.FromScaleToBoxes;
 import org.usfirst.frc155.commands.FromSwitchToBoxes;
 import org.usfirst.frc155.commands.GetCube;
+import org.usfirst.frc155.commands.PriorityScale;
+import org.usfirst.frc155.commands.PriorityScaleSwitch;
+import org.usfirst.frc155.commands.PrioritySwitch;
+import org.usfirst.frc155.commands.PrioritySwitchScale;
 import org.usfirst.frc155.commands.ToOtherSide;
 import org.usfirst.frc155.commands.ToPosition;
 import org.usfirst.frc155.subsystems.Claw;
@@ -260,25 +263,25 @@ public class Robot extends TimedRobot {
 		else if (mode == twoScaleMode) {
 			//run 2 scale 
 
-			//	new PriorityScale(   );
+			new PriorityScale( side, scaleValue, switchValue, position );
 		}
 
 		   else if (mode == twoSwitchMode) {
 			//run 2 switch 
 
-			//	new PrioritySwitch(   );
+			   new PrioritySwitch( side, scaleValue, switchValue, position );
 		 }
 
 		else if (mode == switchScaleMode) {
 			//run switch scale
 
-			//	new PrioritySwitchScale(   );
+				new PrioritySwitchScale(   side, scaleValue, switchValue, position  );
 
 		}
 		else if (mode == scaleSwitchMode) {
 			//run scale switch
 
-			//	new PriorityScaleSwitch(   );
+				new PriorityScaleSwitch(  side, scaleValue, switchValue, position   );
 
 		}
 
