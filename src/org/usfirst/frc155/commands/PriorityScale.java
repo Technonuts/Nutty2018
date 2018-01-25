@@ -17,18 +17,14 @@ public class PriorityScale extends CommandGroup {
     	}
     	else if(position==switchValue){
     		//2 switches
-    		addSequential(new AutoSwitch( travelLength,position)); 
-    		addSequential(new FromSwitchToBoxes(position));
-    		addSequential(new GetCube(position));	
-    		addSequential(new CubeToSwitch());
-    		//DoubleSwitchAuto
+    		
+    		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));//DoubleSwitchAuto
     	}
     	else {
-    		//2 switches opposite
-    		addSequential(new oppositeSwitch(travelLength, position));
-    		addSequential(new FromSwitchToBoxes(position));
-    		addSequential(new GetCube(position));	
-    		addSequential(new CubeToSwitch());
+    		//2 switches opposite - first move to the other side of the field
+    		//code to go to other side needed
+    		
+    		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));
     		//other side and doubleSwitchAuto
     	}
     	

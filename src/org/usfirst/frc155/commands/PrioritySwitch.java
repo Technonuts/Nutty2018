@@ -11,11 +11,8 @@ public class PrioritySwitch extends CommandGroup {
     	
     	if(position==switchValue) {
     		//2 switches
-    		addSequential(new AutoSwitch( travelLength,position)); 
-    		addSequential(new FromSwitchToBoxes(position));
-    		addSequential(new GetCube(position));	
-    		addSequential(new CubeToSwitch());
-    		//DoubleSwitchAuto
+    		
+    		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));
     		
     		
     	}
@@ -26,11 +23,9 @@ public class PrioritySwitch extends CommandGroup {
     	}
     	else {
     		//2 switches opposite
-    		addSequential(new oppositeSwitch(travelLength, position));
-    		addSequential(new FromSwitchToBoxes(position));
-    		addSequential(new GetCube(position));	
-    		addSequential(new CubeToSwitch());
+    		//code to go to other side needed
     		//other side and double scale
+    		addSequential(new DoubleScaleAuto(position, scaleValue, travelLength));
     	}
     	
     	
