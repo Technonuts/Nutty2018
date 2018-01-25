@@ -24,7 +24,7 @@ public class DoubleScaleSwitch extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new AutoScale( travelLength,position)); 
+    	addSequential(new AutoScale(position)); 
 		addSequential(new FromScaleToBoxes(position));
 		addSequential(new GetCube(position));
 		addSequential(new CubeToSwitch());
