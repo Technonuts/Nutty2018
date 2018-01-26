@@ -21,7 +21,7 @@ double distance, shortDistance, longDistance;
     	else {
     		angle = -90;
     	}
-    	
+    	addParallel(new checkForRobot());
     	addSequential(new TurnDriveAngle(angle,.5));
     	addSequential(new DriveStraightDistance(distance,.5));
     	addSequential(new TurnDriveAngle(-angle,.5));
