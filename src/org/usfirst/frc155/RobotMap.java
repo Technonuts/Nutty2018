@@ -101,6 +101,7 @@ public class RobotMap {
         clawWrist = new DoubleSolenoid(0, 6, 7);
         LiveWindow.addActuator("Claw", "Wrist", clawWrist);
         
+        
         clawElbow = new WPI_VictorSPX(4);
         LiveWindow.addActuator("Claw", "Elbow", clawElbow);
         
