@@ -13,8 +13,6 @@ package org.usfirst.frc155;
 import org.usfirst.frc155.commands.AutoScale;
 import org.usfirst.frc155.commands.AutoSwitch;
 import org.usfirst.frc155.commands.DriveStraightDistance;
-<<<<<<< HEAD
-=======
 import org.usfirst.frc155.commands.FromScaleToBoxes;
 import org.usfirst.frc155.commands.FromSwitchToBoxes;
 import org.usfirst.frc155.commands.GetCube;
@@ -22,7 +20,6 @@ import org.usfirst.frc155.commands.PriorityScale;
 import org.usfirst.frc155.commands.PriorityScaleSwitch;
 import org.usfirst.frc155.commands.PrioritySwitch;
 import org.usfirst.frc155.commands.PrioritySwitchScale;
->>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
 import org.usfirst.frc155.commands.ToOtherSide;
 import org.usfirst.frc155.commands.ToPosition;
 import org.usfirst.frc155.commands.readForDelay;
