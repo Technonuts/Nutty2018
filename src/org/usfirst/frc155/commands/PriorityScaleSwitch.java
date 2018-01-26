@@ -31,7 +31,6 @@ public class PriorityScaleSwitch extends CommandGroup {
     		addSequential(new ToPosition());
     		addSequential(new DoubleScaleSwitch(position, scaleValue, switchValue, travelLength));
     		
-    		
     	}
     	else if(position==switchValue){
     		//2 scale
