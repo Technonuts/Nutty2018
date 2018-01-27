@@ -13,7 +13,7 @@ package org.usfirst.frc155.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc155.Robot;
 
-/**
+/** 
  *
  */
 public class CloseGripper extends Command {

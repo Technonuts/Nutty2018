@@ -5,7 +5,7 @@ import org.usfirst.frc155.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * 
  */
 public class DrivingMode extends Command {
 

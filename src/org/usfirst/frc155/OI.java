@@ -78,7 +78,7 @@ public class OI {
 		highSpeedButton.whenPressed(new HighSpeed());
 		leftStick = new Joystick(0);
 
-		
+
 		lowSpeedButton = new JoystickButton(leftStick, 1);
 		lowSpeedButton.whenPressed(new LowSpeed());
 
