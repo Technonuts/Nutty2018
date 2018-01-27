@@ -1,5 +1,7 @@
 package org.usfirst.frc155.commands;
 
+import org.usfirst.frc155.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -8,12 +10,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RetractWrist extends Command {
 
     public RetractWrist() {
+    	
+    	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.claw.retractWrist();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,6 +27,9 @@ public class RetractWrist extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(  	Robot.claw.retractWrist()  ) {
+    		return true;
+    	}
         return false;
     }
 

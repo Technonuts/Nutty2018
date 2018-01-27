@@ -1,5 +1,7 @@
 package org.usfirst.frc155.commands;
 
+import org.usfirst.frc155.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -8,12 +10,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ExtendWrist extends Command {
 
     public ExtendWrist() {
+    	
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.claw.extendWrist();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +26,12 @@ public class ExtendWrist extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(Robot.claw.extendWrist()) {
+    		return true;
+    	}
+    	else {
         return false;
+    	}
     }
 
     // Called once after isFinished returns true
