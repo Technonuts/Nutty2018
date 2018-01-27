@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 /**
- *
+ * 
  */
 public class Claw extends Subsystem {
 

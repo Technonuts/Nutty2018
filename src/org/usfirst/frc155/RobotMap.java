@@ -94,7 +94,7 @@ public class RobotMap {
         
         drivetrainRightDrive2 = new WPI_VictorSPX(3);
         
-        
+         
         drivetrainRobotDrive4 = new RobotDrive(drivetrainLeftDrive1, drivetrainLeftDrive2,
               drivetrainRightDrive1, drivetrainRightDrive2);
         
