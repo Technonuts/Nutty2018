@@ -132,6 +132,9 @@ public class RobotMap {
         elevatorLiftPot = new AnalogPotentiometer(2, 1.0, 0.0);
         LiveWindow.addSensor("Elevator", "Lift Pot", elevatorLiftPot);
         
+        wristPot = new AnalogPotentiometer(2, 1.0, 0.0);
+        LiveWindow.addSensor("Wrist", "Wrist Pot", wristPot);
+        
         elevatorLift = new WPI_VictorSPX(5);
         
         clawLeftMotor = new Spark(1);
