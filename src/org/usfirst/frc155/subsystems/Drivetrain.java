@@ -145,6 +145,11 @@ public class Drivetrain extends Subsystem {
 		return range;
 //>>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
 	}
+	
+	public void resetEncoder(){
+		leftEncoder.reset();
+		rightEncoder.reset();
+	}
 }
 
 	

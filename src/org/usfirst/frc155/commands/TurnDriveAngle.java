@@ -59,6 +59,7 @@ public class TurnDriveAngle extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drivetrain.resetEncoder();
     	Robot.drivetrain.stop();
     }
 
