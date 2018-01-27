@@ -13,7 +13,7 @@ public class DoubleScaleSwitch extends CommandGroup {
         //      addSequential(new Command2());
         // these will run in order.
 
-        // To run multiple commands at the same time,
+         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());

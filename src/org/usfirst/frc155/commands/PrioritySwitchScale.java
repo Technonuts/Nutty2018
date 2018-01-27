@@ -41,7 +41,7 @@ public class PrioritySwitchScale extends CommandGroup {
     	}
     	else {
     		//2 switches opposite
-
+    		
     		addSequential(new ToOtherSide(scaleValue, position));
     		addSequential(new DoubleSwitchAuto(position, scaleValue, travelLength));
     	}

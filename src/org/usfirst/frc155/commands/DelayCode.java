@@ -5,32 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class PrioritySwitch extends CommandGroup {
+public class DelayCode extends CommandGroup {
 
-    public PrioritySwitch(int position, int scaleValue, int switchValue, int travelLength) {
-    	
-    	if(position==switchValue) {
-    		//2 switches
-    		
-    		addSequential(new ToPosition());
-    		addSequential(new DoubleSwitchAuto(position, switchValue, travelLength));
-    		
-    		
-    	}
-    	else if(position==scaleValue){
-    		//2 scale
-    		
-    		addSequential(new ToPosition());
-    		addSequential(new DoubleScaleAuto(position, scaleValue, travelLength));
-    	}
-    	else {
-    		//2 switches opposite
-    	
-    		addSequential(new ToOtherSide(scaleValue, position));
-    		addSequential(new DoubleScaleAuto(position, scaleValue, travelLength));
-    	}
-    	
-    	
+    public DelayCode() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
