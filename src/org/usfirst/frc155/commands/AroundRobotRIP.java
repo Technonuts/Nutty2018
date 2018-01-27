@@ -15,12 +15,12 @@ int angle, distance;
     	}
     	else {
     		angle=90;
-    	}   
+    	}      
     	
     	addSequential(new readForDelay(time));
     	distanceToTravel = distanceToSide - distTraveled;
     	addSequential(new DriveStraightDistance(distanceToTravel, .75 ));
-    	b b       
+    	//b b       
     	/*addSequential(new TurnDriveAngle(angle ,.5 ) );
     	addSequential(new DriveStraightDistance(distance, .75 ));
     	*/
