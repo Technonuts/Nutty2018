@@ -135,5 +135,10 @@ public class Drivetrain extends Subsystem {
 		range = (rangeFinder.getVoltage() * multiplier);
 		return range;
 	}
+	
+	public void resetEncoder(){
+		leftEncoder.reset();
+		rightEncoder.reset();
+	}
 }
 

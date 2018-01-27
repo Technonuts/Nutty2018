@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class ToOtherSide extends CommandGroup {
 int angle;
-double distance, shortDistance, longDistance;
+double distance, shortDistance, longDistance, number;
     public ToOtherSide(int side, int position) {
     	if(position == 1 )
     		distance = shortDistance;
@@ -21,11 +21,24 @@ double distance, shortDistance, longDistance;
     	else {
     		angle = -90;
     	}
-    	addParallel(new checkForRobot());
+    	
+    	
     	addSequential(new TurnDriveAngle(angle,.5));
+    	addParallel(new checkForRobot());  	
+    	if( checkForRobot.toClose() == number) {
+    	/*
+    		addSequential(new DriveStraightDistance(-checkForRobot.averageDistance(), .5)); 
+    		addSequential(new CrossLineRIP(side));
+    	*/
+    		//or
+    		addSequential(new AroundRobotRIP(checkForRobot.averageDistance() , side ));
+    	}
+    	
+    	else {
     	addSequential(new DriveStraightDistance(distance,.5));
     	addSequential(new TurnDriveAngle(-angle,.5));
 
+    	}
 
         // Add Commands here:
         // e.g. addSequential(new Command1());
