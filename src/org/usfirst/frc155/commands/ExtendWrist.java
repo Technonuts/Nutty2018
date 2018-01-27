@@ -20,7 +20,7 @@ public class ExtendWrist extends Command {
     	Robot.claw.extendWrist();
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    // Called repeated  ly when this Command is scheduled to run
     protected void execute() {
     }
 

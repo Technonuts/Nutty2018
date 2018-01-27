@@ -74,11 +74,11 @@ public class Claw extends Subsystem {
 	public void openGripper() {
 		gripper.set(DoubleSolenoid.Value.kForward);
 	}
-
-	public void closeGripper() {
+  void closeGripper() {
 		gripper.set(DoubleSolenoid.Value.kReverse);
 		
 	}
+	
 
 	public boolean extendWrist() {
 		gripper.set(DoubleSolenoid.Value.kForward);

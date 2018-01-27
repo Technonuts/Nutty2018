@@ -111,7 +111,7 @@ public class Drivetrain extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    
+     
     public void highSpeed() {
     	speedSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
@@ -146,4 +146,5 @@ public class Drivetrain extends Subsystem {
 //>>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
 	}
 }
+
 	
