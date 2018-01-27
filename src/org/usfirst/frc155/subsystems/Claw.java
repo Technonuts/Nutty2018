@@ -70,6 +70,22 @@ public class Claw extends Subsystem {
         // Put code here to be run every loop
 
     }
+    
+    public void openGripper() {
+    	gripper.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void closeGripper() {
+    	gripper.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    public void extendWrist() {
+    	gripper.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void retractWrist() {
+    	gripper.set(DoubleSolenoid.Value.kReverse);
+    }
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
