@@ -100,10 +100,10 @@ public class OI {
 		wristButton.whenReleased(new RetractWrist());
 		
 		hangingButton = new JoystickButton(switches, 7);
-		hangingButton.whenPressed(new startClimbing(1));
-		hangingButton.whenReleased(new endClimbing());
+		hangingButton.whenPressed(new startClimbing());
+		hangingButton.whenReleased(new stopClimbing());
 				
-	
+									
 		
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());

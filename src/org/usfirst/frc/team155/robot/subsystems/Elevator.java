@@ -96,14 +96,5 @@ public class Elevator extends PIDSubsystem {
 
 	}
 
-	protected void startClimbing(double climberSpeed) {
-		RobotMap.elevatorLeftHanger.setSpeed(climberSpeed);
-		RobotMap.elevatorRightHanger.setSpeed(climberSpeed);
-	}
-
-	protected void endClimbing() {
-		RobotMap.elevatorLeftHanger.setSpeed(0);
-		RobotMap.elevatorRightHanger.setSpeed(0);
-
-	}
+	
 }
