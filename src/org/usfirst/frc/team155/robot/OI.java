@@ -70,10 +70,10 @@ public class OI {
 
 		switches = new Joystick(2);
 
-		closeGripperButton = new JoystickButton(switches, 1);
-		closeGripperButton.whenPressed(new CloseGripper());
-		openGripperButton = new JoystickButton(switches, 2);
-		openGripperButton.whenPressed(new OpenGripper());
+		//closeGripperButton = new JoystickButton(switches, 1);
+		//closeGripperButton.whenPressed(new CloseGripper());
+		//openGripperButton = new JoystickButton(switches, 2);
+		//openGripperButton.whenPressed(new OpenGripper());
 		rightStick = new Joystick(1);
 
 		highSpeedButton = new JoystickButton(rightStick, 1);
@@ -95,7 +95,7 @@ public class OI {
 		searchForCube = new JoystickButton(switches, 5);
 		searchForCube.whenPressed(new SearchCube());
 		
-		wristButton = new JoystickButton(switches, 6);
+		wristButton = new JoystickButton(switches, 1);
 		wristButton.whenPressed(new ExtendWrist());
 		wristButton.whenReleased(new RetractWrist());
 		

@@ -128,12 +128,12 @@ public Claw() {
 	
 
 	public boolean extendWrist() {
-		gripper.set(DoubleSolenoid.Value.kForward);
+		wrist.set(DoubleSolenoid.Value.kForward);
 		return true;
 	}
 
 	public boolean retractWrist() {
-		gripper.set(DoubleSolenoid.Value.kReverse);
+		wrist.set(DoubleSolenoid.Value.kReverse);
 		return true;
 	}
 
