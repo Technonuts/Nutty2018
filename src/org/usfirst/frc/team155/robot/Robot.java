@@ -140,6 +140,8 @@ public class Robot extends TimedRobot {
 
 		SmartDashboard.putData("Auto mode", autoChooser);
 		SmartDashboard.putData("Robot side", sideChooser);
+		
+
 
 	}
 
@@ -321,5 +323,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+        elevator.resetLow();
+		SmartDashboard.putNumber("Lift distance", elevator.getLiftEncoder().getDistance());
+		SmartDashboard.putNumber("cube distance", claw.cubeDistance);
 	}
 }

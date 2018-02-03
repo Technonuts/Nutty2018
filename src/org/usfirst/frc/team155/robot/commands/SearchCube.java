@@ -24,20 +24,26 @@ public class SearchCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
+    	if (Robot.claw.readCubeSensor() <= 24) {
+    		Robot.claw.suckCube();
+    	}
+    	else Robot.claw.stopCube();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.claw.leftCubeSwitch() && Robot.claw.rightCubeSwitch())
+    	if (Robot.claw.readCubeSensor() <= 12) {
     		return true;
-    	else
+    	}
+   	else 
         return false;
+    	
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	
+    	//Robot.claw.closeGripper();
+    	new SuckingCube();
     }
 
     // Called when another command which requires one or more of the same

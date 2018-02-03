@@ -122,6 +122,12 @@ public boolean getLowLimit() {
 return minLimit.get();
 }
 	
+public void resetLow() {
+	if(getLowLimit()) {
+		liftEncoder.reset();
+	}
+}
+
 public void manualLift(Joystick Switch) {
 	lift.set(Switch.getAxis(Joystick.AxisType.kY));
 }
@@ -129,6 +135,7 @@ public void manualLift(Joystick Switch) {
 public void holdLift() {
 	lift.set(0); ///Change value to have it hold
 }
+
 
 
 

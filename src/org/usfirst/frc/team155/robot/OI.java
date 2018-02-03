@@ -90,7 +90,7 @@ public class OI {
 
 		spitCubeButton = new JoystickButton(switches, 4);
 		spitCubeButton.whenPressed(new SpittingCube());
-		spitCubeButton.whenReleased(new DrivingMode());
+		//spitCubeButton.whenReleased(new DrivingMode());
 
 		searchForCube = new JoystickButton(switches, 9);
 		searchForCube.whenPressed(new SearchCube());
@@ -114,8 +114,8 @@ public class OI {
 		SmartDashboard.putData("Move Lift: LowScale", new MoveLift(Elevator.LOWSCALEHEIGHT));
 		SmartDashboard.putData("Move Lift: HighScale", new MoveLift(Elevator.HIGHSCALEHEIGHT));
 		SmartDashboard.putData("Move Lift: Hang", new MoveLift(Elevator.HANGHEIGHT));
-		SmartDashboard.putData("Open Gripper", new OpenGripper());
-		SmartDashboard.putData("Close Gripper", new CloseGripper());
+		//SmartDashboard.putData("Open Gripper", new OpenGripper());
+		//SmartDashboard.putData("Close Gripper", new CloseGripper());
 		SmartDashboard.putData("High Speed", new HighSpeed());
 		SmartDashboard.putData("Low Speed", new LowSpeed());
 		// SmartDashboard.putData("Drive Straight Distance", new

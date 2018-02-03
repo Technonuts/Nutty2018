@@ -2,12 +2,15 @@ package org.usfirst.frc.team155.robot.commands;
   
 import org.usfirst.frc.team155.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class SuckingCube extends Command {
+	
+	private double startTime;
 
     public SuckingCube() {
     	requires(Robot.claw);
@@ -17,19 +20,42 @@ public class SuckingCube extends Command {
     protected void initialize() {
     	Robot.claw.suckCube();
     	Robot.claw.closeGripper();
+    	startTime = Timer.getFPGATimestamp();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	/*
+    	if (Robot.claw.readCubeSensor() < 12) //distance in inches
+    		if (Timer.getFPGATimestamp() >= startTime + 2) {
+    			Robot.claw.closeGripper();
+    			startTime = Timer.getFPGATimestamp();
+    			}
+    		else if (Timer.getFPGATimestamp() >= startTime + 1) {
+    			Robot.claw.openGripper();
+    			}
+    		else {Robot.claw.closeGripper();
+    			
+    		}
+    	else {
+    		//Robot.claw.openGripper();
+    		new SearchCube();
+    		
+    	}
+    	*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if (Robot.claw.leftCubeSwitch() && Robot.claw.rightCubeSwitch())
+    		return true;
+    	else
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	new HoldCube();
     }
 
     // Called when another command which requires one or more of the same
