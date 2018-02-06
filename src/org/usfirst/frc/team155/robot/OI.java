@@ -84,16 +84,22 @@ public class OI {
 		lowSpeedButton = new JoystickButton(leftStick, 1);
 		lowSpeedButton.whenPressed(new LowSpeed());
 
+		/*
 		suckCubeButton = new JoystickButton(switches, 5);
 		suckCubeButton.whenPressed(new SuckingCube());
 		suckCubeButton.whenReleased(new HoldCube());
-
+*/
+		suckCubeButton = new JoystickButton(switches, 5);
+		suckCubeButton.whenPressed(new CubeAquire());
+		
 		spitCubeButton = new JoystickButton(switches, 4);
 		spitCubeButton.whenPressed(new SpittingCube());
 		//spitCubeButton.whenReleased(new DrivingMode());
 
+		/*
 		searchForCube = new JoystickButton(switches, 9);
 		searchForCube.whenPressed(new SearchCube());
+		*/
 		
 		wristButton = new JoystickButton(switches, 8);
 		wristButton.whenPressed(new ExtendWrist());

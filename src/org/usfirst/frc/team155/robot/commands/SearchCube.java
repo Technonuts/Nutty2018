@@ -16,9 +16,11 @@ public class SearchCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("SeachS");
     	Robot.claw.openGripper();
+    	//System.out.println("openGripper");
     	Robot.claw.suckCube();
-    		
+    	//System.out.println("suckCube");	
     			
     }
 
@@ -26,8 +28,10 @@ public class SearchCube extends Command {
     protected void execute() {
     	if (Robot.claw.readCubeSensor() <= 24) {
     		Robot.claw.suckCube();
+    		//System.out.println("suckCube2");	
     	}
     	else Robot.claw.stopCube();
+    	//System.out.println("stopCube");	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -42,8 +46,9 @@ public class SearchCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("SeachF");
     	//Robot.claw.closeGripper();
-    	new SuckingCube();
+    	//new SuckingCube();
     }
 
     // Called when another command which requires one or more of the same

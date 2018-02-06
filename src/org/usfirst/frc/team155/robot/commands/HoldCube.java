@@ -18,6 +18,7 @@ public class HoldCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("HoldS");
     	Robot.claw.closeGripper();
     	Robot.claw.stopCube();
     	startTime = Timer.getFPGATimestamp();
@@ -37,6 +38,7 @@ public class HoldCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("HoldF");
     	//new MoveLift(Robot.elevator.FENCEHEIGHT);
     	
     }

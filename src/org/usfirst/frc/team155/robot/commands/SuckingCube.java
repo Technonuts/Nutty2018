@@ -18,6 +18,7 @@ public class SuckingCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("SuckS");
     	Robot.claw.suckCube();
     	Robot.claw.closeGripper();
     	startTime = Timer.getFPGATimestamp();
@@ -25,7 +26,7 @@ public class SuckingCube extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	/*
+    	
     	if (Robot.claw.readCubeSensor() < 12) //distance in inches
     		if (Timer.getFPGATimestamp() >= startTime + 2) {
     			Robot.claw.closeGripper();
@@ -37,12 +38,19 @@ public class SuckingCube extends Command {
     		else {Robot.claw.closeGripper();
     			
     		}
-    	else {
-    		//Robot.claw.openGripper();
-    		new SearchCube();
+    	else if (Robot.claw.readCubeSensor() >= 24) {
+    		Robot.claw.stopCube();
+    		Robot.claw.openGripper();
+    		
+    		//System.out.println("suckCube2");	
+    	}
+    	else { Robot.claw.suckCube();
+    	//System.out.println("stopCube");
+    		Robot.claw.openGripper();
+    		//new SearchCube();
     		
     	}
-    	*/
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -55,7 +63,8 @@ public class SuckingCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	new HoldCube();
+    	System.out.println("SuckF");
+    	//new HoldCube();
     }
 
     // Called when another command which requires one or more of the same
