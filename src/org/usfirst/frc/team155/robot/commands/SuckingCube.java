@@ -28,6 +28,7 @@ public class SuckingCube extends Command {
     protected void execute() {
     	
     	if (Robot.claw.readCubeSensor() < 12) //distance in inches
+    		/*
     		if (Timer.getFPGATimestamp() >= startTime + 2) {
     			Robot.claw.closeGripper();
     			startTime = Timer.getFPGATimestamp();
@@ -35,15 +36,15 @@ public class SuckingCube extends Command {
     		else if (Timer.getFPGATimestamp() >= startTime + 1) {
     			Robot.claw.openGripper();
     			}
-    		else {Robot.claw.closeGripper();
+    		else {*/Robot.claw.closeGripper();
     			
-    		}
-    	else if (Robot.claw.readCubeSensor() >= 24) {
+    		//}
+    	/*else if (Robot.claw.readCubeSensor() >= 24) {
     		Robot.claw.stopCube();
     		Robot.claw.openGripper();
     		
     		//System.out.println("suckCube2");	
-    	}
+    	}*/
     	else { Robot.claw.suckCube();
     	//System.out.println("stopCube");
     		Robot.claw.openGripper();
