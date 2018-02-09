@@ -94,7 +94,7 @@ public class OI {
 		suckCubeButton.whenPressed(new SuckingCube());
 		suckCubeButton.whenReleased(new HoldCube());
 */
-		suckCubeButton = new JoystickButton(switches, 5);
+	suckCubeButton = new JoystickButton(switches, 5);
 		suckCubeButton.whenPressed(new CubeAquire());
 		
 		spitCubeButton = new JoystickButton(switches, 4);
