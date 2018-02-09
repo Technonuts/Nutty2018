@@ -139,9 +139,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto Delay", delayChooser);
 
 		SmartDashboard.putData("Auto mode", autoChooser);
-		SmartDashboard.putData("Robot side", sideChooser);
-		
-
+				
 
 	}
 
@@ -210,6 +208,9 @@ public class Robot extends TimedRobot {
 			scaleValue = rightValue;
 
 		}
+		SmartDashboard.putString("Switch side", Character.toString(ourSwitch ));
+		SmartDashboard.putString("Scale side", Character.toString(scale ));
+
 		/*	
 		if(gameData.charAt(2) == 'L')
 		{
