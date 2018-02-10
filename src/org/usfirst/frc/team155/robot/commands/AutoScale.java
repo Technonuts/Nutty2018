@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoScale extends CommandGroup {
-private double distance;
+private double distance = 10;
 
 private int angle;
 
     public AutoScale( int side) {
-
+    	System.out.println("running autoscale ");
     	if(side==1) {
     		angle =90;
     	}
@@ -26,6 +26,7 @@ private int angle;
     	addSequential(new DriveStraightDistance(distance,.25));
     	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
+    	System.out.println("at autoscale ");
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());

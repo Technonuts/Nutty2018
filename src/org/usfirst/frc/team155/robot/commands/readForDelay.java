@@ -21,6 +21,7 @@ public class readForDelay extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Delay Start");
     	startTime = timer.getFPGATimestamp();
     }
 
@@ -31,8 +32,15 @@ public class readForDelay extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(delayLength<=timer.getFPGATimestamp()-startTime)
+    
+    	if(delayLength<=timer.getFPGATimestamp()-startTime) {
+    		
+    		System.out.println("Delay Finished");
     		done = true;
+    	}
+    	else {
+    		done=false;
+    	}
     	return done;
     }
 

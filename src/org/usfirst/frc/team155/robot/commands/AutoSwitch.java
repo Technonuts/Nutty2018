@@ -16,7 +16,8 @@ private double firstDistance;
 
 
     public AutoSwitch( int side) {
-    	
+
+    	System.out.println("running auto switch ");
     	if(side==1) {
     		angle =90;
     	}
@@ -30,7 +31,7 @@ private double firstDistance;
     	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
    
-    	
+    	System.out.println("at auto switch ");
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

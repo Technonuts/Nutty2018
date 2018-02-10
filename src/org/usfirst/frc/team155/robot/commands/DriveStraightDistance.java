@@ -58,16 +58,23 @@ public class DriveStraightDistance extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+    	System.out.println("straight drive int");
     	Robot.drivetrain.getLeftEncoder().reset();
     	Robot.drivetrain.getRightEncoder().reset();
     	m_heading = Robot.drivetrain.getGyro();
-		setTimeout(2);
-    }
+	    }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+    	
+    	System.out.println("straight drive ex");
     	m_error = m_distance - Robot.drivetrain.getRightEncoder().getDistance();
+    	System.out.println("merror=" + m_error);
+    	System.out.println("mdistancer=" + m_distance);
+    	System.out.println("encoder=" + Robot.drivetrain.getRightEncoder().getDistance());
+        
+        
     
 		if (m_driveForwardSpeed * kP * m_error >= m_driveForwardSpeed) {
 			m_speed = m_driveForwardSpeed;
@@ -92,7 +99,8 @@ public class DriveStraightDistance extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-    	return Math.abs(m_error) <= kTolerance || isTimedOut();
+    	System.out.println("straight drive fin");
+    	return Math.abs(m_error) <= kTolerance ;
     }
 
     // Called once after isFinished returns true
