@@ -32,13 +32,15 @@ public class TurnDriveAngle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Hereint");
     	m_heading = Robot.drivetrain.getGyro();
-    	setTimeout(2);
+    	//setTimeout(2);
     }
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	m_drift = m_heading - Robot.drivetrain.getGyro();
+    	System.out.println("Hereext");
+    	m_drift = m_angle - Robot.drivetrain.getGyro();
     	if (m_turnSpeed * kPAng * m_drift >= m_turnSpeed) {
     		m_turnrate = m_turnSpeed;
     	}
@@ -53,12 +55,14 @@ public class TurnDriveAngle extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Math.abs(m_drift) <= kTolerance || isTimedOut();
+    	System.out.println("Herefin");
+    	return Math.abs(m_drift) <= kTolerance;// || isTimedOut();
        
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("Hereend");
     	Robot.drivetrain.resetEncoder();
     	Robot.drivetrain.stop();
     }
