@@ -87,6 +87,10 @@ public class RobotMap {
     public static DoubleSolenoid gripperPneumatics;
     
     public static double liftDistancePerPulse = 3.75/4553;
+    public static double driveDistancePerPulse = 18.75/380/12;
+    
+    // wheel = 18 3/4"
+    
     
 //>>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
 
@@ -123,12 +127,12 @@ public class RobotMap {
         drivetrainLeftEncoder = new Encoder(0, 1, false, EncodingType.k4X);
         LiveWindow.addSensor("Drivetrain", "Left Encoder", drivetrainLeftEncoder);
         
-        drivetrainLeftEncoder.setDistancePerPulse(1.0);
+        drivetrainLeftEncoder.setDistancePerPulse(driveDistancePerPulse);
         drivetrainLeftEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
         
         drivetrainRightEncoder = new Encoder(2, 3, false, EncodingType.k4X);
         LiveWindow.addSensor("Drivetrain", "Right Encoder", drivetrainRightEncoder);
-        drivetrainRightEncoder.setDistancePerPulse(1.0);
+        drivetrainRightEncoder.setDistancePerPulse(driveDistancePerPulse);
         drivetrainRightEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
         
         
@@ -150,16 +154,20 @@ public class RobotMap {
         
         drivetrainLeftDrive1 = new WPI_VictorSPX(2);
         drivetrainLeftDrive1.setSafetyEnabled(false);
+        drivetrainLeftDrive1.setInverted(true);
         
         
         drivetrainLeftDrive2 = new WPI_VictorSPX(3);
         drivetrainLeftDrive2.setSafetyEnabled(false);
+        drivetrainLeftDrive2.setInverted(true);
         
         drivetrainRightDrive1 = new WPI_VictorSPX(4);
         drivetrainRightDrive1.setSafetyEnabled(false);
+        drivetrainRightDrive1.setInverted(true);
         
         drivetrainRightDrive2 = new WPI_VictorSPX(5);
         drivetrainRightDrive2.setSafetyEnabled(false);
+        drivetrainRightDrive2.setInverted(true);
         
         clawElbow = new VictorSP(4);
        LiveWindow.addActuator("Claw", "Elbow", clawElbow);
@@ -167,8 +175,7 @@ public class RobotMap {
         elevatorLift_1 = new WPI_VictorSPX(6);
         elevatorLift_2 = new WPI_VictorSPX(7);
          
-        drivetrainRobotDrive4 = new RobotDrive(drivetrainLeftDrive1, drivetrainLeftDrive2,
-              drivetrainRightDrive1, drivetrainRightDrive2);
+        drivetrainRobotDrive4 = new RobotDrive(drivetrainRightDrive1, drivetrainRightDrive2, drivetrainLeftDrive1, drivetrainLeftDrive2);
         elevatorLeftHanger = new VictorSP(2);
         elevatorRightHanger = new VictorSP(3);
         

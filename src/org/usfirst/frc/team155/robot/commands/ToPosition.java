@@ -6,10 +6,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class ToPosition extends CommandGroup {
-double distance = 31;
+
+	public double dist =1.5;
+	
+	
     public ToPosition() {
+    	 	
     	System.out.println("ENter toposition");
-      	addSequential(new DriveStraightDistance(distance,.5));
+      	addSequential(new DriveStraightDistance(dist,.25));
       	System.out.println("at toposition ");
       
         // Add Commands here:

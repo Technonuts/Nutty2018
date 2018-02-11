@@ -242,7 +242,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		System.out.println("Here1");
+		//System.out.println("Here1");
 		Scheduler.getInstance().run();
 		
 	}

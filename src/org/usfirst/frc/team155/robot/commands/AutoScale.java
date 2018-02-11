@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoScale extends CommandGroup {
-private double distance = 10;
+private double Longdistance = 3;
+private double Shortdistance =1;
 
 private int angle;
 
@@ -20,10 +21,10 @@ private int angle;
     	else {
     		angle=-90;
     	}
-    	addSequential(new DriveStraightDistance(10,.5));
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
+    	addSequential(new DriveStraightDistance(Longdistance,.5));
+    	//addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
     	addSequential(new TurnDriveAngle(angle,.5));
-    	addSequential(new DriveStraightDistance(distance,.25));
+    	addSequential(new DriveStraightDistance(Shortdistance,.5));
     	//Add sequential "release" code 
     	addSequential(new DriveStraightDistance(-1,.5));
     	System.out.println("at autoscale ");

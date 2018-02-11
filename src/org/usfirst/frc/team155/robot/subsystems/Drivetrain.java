@@ -95,9 +95,13 @@ public class Drivetrain extends Subsystem {
 	public void tankDrivejoy(Joystick left, Joystick right) {
 		robotDrive4.tankDrive(left,right);
 	}
+	
+	public void tankDrivejoyGyro(double left, double right) {
+		robotDrive4.tankDrive(left,right);
+	}
 
 	public void arcDrive(double speed, double turn) {
-		System.out.println("Herearc");
+		//System.out.println("Herearc");
 		robotDrive4.arcadeDrive(speed, turn);
 	}
 
@@ -142,6 +146,10 @@ public class Drivetrain extends Subsystem {
 
 	public void resetGyro(){
 		gyro1.reset();
+	}
+	
+	public double getGyroRate() {
+		return gyro1.getRate();
 	}
 
 	public double getRangeFinder() {

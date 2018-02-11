@@ -20,8 +20,11 @@ public class Autonomous extends CommandGroup {
 
     public Autonomous( int mode, int side, double autoDelay, int scaleValue, int switchValue, int position) {
     	System.out.println("Here2");
-    	//addSequential(new TurnDriveAngle(-90, 1) );
-    	addSequential(new readForDelay(autoDelay)); //findSpot
+    //addSequential(new DriveStraightDistance(3,.4));
+    	//addSequential(new TurnDriveAngle(180,.5));  // actual angle = 180
+    	//addSequential(new DriveStraightDistance(3,.4));
+  
+ 	addSequential(new readForDelay(autoDelay)); //findSpot
 		if (mode == scaleMode) {
 			System.out.println("Mode=Scale Mode");
 			//this is scale code
@@ -32,8 +35,9 @@ public class Autonomous extends CommandGroup {
 				System.out.println("toposition");
 				addSequential(new AutoScale(side)); 
 				System.out.println("autoscale");
-			}
-			else if(switchValue ==side) {
+			}}
+			
+	 /*  		else if(switchValue ==side) {
 				System.out.println("MSwitch side = our side");
 				//run switch command
 				addSequential(new ToPosition());
@@ -115,6 +119,6 @@ public class Autonomous extends CommandGroup {
 			//do nothing
 		}
     	
-       
+      */ 
     }
 }
