@@ -29,7 +29,8 @@ public class TurnDriveAngle extends Command {
 	private double t_min = 0;
 	private double error = 0;
 	private boolean done=false;
-
+	
+	private boolean starttime=false;
 	private double m_turnrate;
 
 	public TurnDriveAngle(double angle, double maxTurn) {
@@ -98,20 +99,27 @@ public class TurnDriveAngle extends Command {
     	
     	Robot.drivetrain.arcDrive(0, -m_turnrate);
     	
-    
+    	if(Math.abs(m_drift) <= kTolerance) {
+    		starttime=true;
+    	}
+    			
+    	if (starttime) {
+    		 setTimeout(1.5);
+    		 starttime=false;
+    	}
     }
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		//System.out.println("Here fin");
 		
-
+/*
 		
 		if (error > t_max) {
 			t_max = error;
 			
 		}
-		if (error<0) {
+		if (error<kTolerance) {
 			max = t_max;
 		}
 			
@@ -119,7 +127,7 @@ public class TurnDriveAngle extends Command {
 			t_min= error;
 			
 		}
-		if (error>0) {
+		if (error>-kTolerance) {
 			min = t_min;
 		}
 		
@@ -131,14 +139,15 @@ public class TurnDriveAngle extends Command {
 				done=true;
 			else {
 				System.out.println("reseting...");
-					t_min=0;
-					t_max=0;
-					max=0;
-					min=0;
+					//t_min=0;
+					//t_max=0;
+					//max=0;
+					//min=0;
 			}
 		}
 		
 		return done;
+		*/
 /*
 		if ((sample1 <= m_angle + kTolerance) && (sample1 >= m_angle - kTolerance) && (sample2 <= m_angle + kTolerance)
 				&& (sample2 >= m_angle - kTolerance)) {
@@ -146,7 +155,7 @@ public class TurnDriveAngle extends Command {
 		} else
 			return false;
 */
-		// return Math.abs(m_drift) <= kTolerance;// || isTimedOut();
+		 return Math.abs(m_drift) <= kTolerance && isTimedOut();
 
 	}
 
