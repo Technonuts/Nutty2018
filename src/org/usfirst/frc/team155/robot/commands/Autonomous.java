@@ -35,9 +35,9 @@ public class Autonomous extends CommandGroup {
 				System.out.println("toposition");
 				addSequential(new AutoScale(side)); 
 				System.out.println("autoscale");
-			}}
+			}
 			
-	 /*  		else if(switchValue ==side) {
+	   		else if(switchValue ==side) {
 				System.out.println("MSwitch side = our side");
 				//run switch command
 				addSequential(new ToPosition());
@@ -119,6 +119,5 @@ public class Autonomous extends CommandGroup {
 			//do nothing
 		}
     	
-      */ 
     }
 }
