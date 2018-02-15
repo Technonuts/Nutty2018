@@ -9,11 +9,24 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class ToOtherSide extends CommandGroup {
 int angle;
-double distance, shortDistance, longDistance, number;
+double distance, shortDistance, longDistance, number, centerDistance;
     public ToOtherSide(int side, int position) {
-    	if(position == 1 )
+    	if(position == 3|| position ==4) {
+    		distance= longDistance;
+    	}
+    	else if (position == 0 || position ==2) {
+    		distance = shortDistance;
+    	}
+    	else if(position == 1) {
+    		distance = centerDistance;
+    	}
+    	
+    	
+    	/*
+    	if(position == 1 ) 
     		distance = shortDistance;
     	else distance = longDistance;
+    	*/
     	
     	if(side==1) {
     		angle = 90 ;

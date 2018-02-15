@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GetCube extends CommandGroup {
+public class GetCubeDumpSide extends CommandGroup {
 
 	private int angle;
 	private int firstStraightDistance;
@@ -24,7 +24,7 @@ public class GetCube extends CommandGroup {
 	
 	
 	
-    public GetCube(int robotPosition) {
+    public GetCubeDumpSide(int robotPosition) {
     	if(robotPosition==1) {
     		angle = 90;
     	}
@@ -34,10 +34,13 @@ public class GetCube extends CommandGroup {
     	}
     	
     	addSequential(new DriveStraightDistance(firstStraightDistance, speed));
-    	addSequential(new TurnDriveAngle(-angle, turnSpeed));
-    	addSequential(new DriveStraightDistance(secondStraightDistance, speed));
     	addParallel(new CubeAquire());
-    	addSequential(new DriveStraightDistance(driveToCube, speed));
+    	addSequential(new MoveWrist(angle));
+    	addSequential(new SpittingCube());
+    	//addSequential(new TurnDriveAngle(-angle, turnSpeed));
+    	//addSequential(new DriveStraightDistance(secondStraightDistance, speed));
+    	//add open gripper
+    	//addSequential(new DriveStraightDistance(driveToCube, speed));
     	//add close gripper
     	//speeds have to be adjusted
     	

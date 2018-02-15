@@ -68,7 +68,8 @@ public class Robot extends TimedRobot {
 	private int scaleSwitchMode = 6;
 	private int mode;
 	private int position;
-
+	private int oneBox = 1;
+	private int twoBox = 2;
 
 
 
@@ -116,14 +117,15 @@ public class Robot extends TimedRobot {
 
 
 		autoChooser = new SendableChooser();
-		autoChooser.addDefault("Scale", scaleMode);
-		autoChooser.addObject("Switch", switchMode);
-		autoChooser.addObject("Mega Scale", megaMode);
+		autoChooser.addDefault("One Box", oneBox);
+		autoChooser.addObject("Two Boxr", twoBox);
+	
+	/*	autoChooser.addObject("Mega Scale", megaMode);
 		autoChooser.addObject("Priority 2 Scales", twoScaleMode);
 		autoChooser.addObject("Priority 2 Switches", twoSwitchMode);
 		autoChooser.addObject("Priority Switch Scale", switchScaleMode);
 		autoChooser.addObject("Priority Scale Switch", scaleSwitchMode);
-
+*/
 
 
 
@@ -132,8 +134,8 @@ public class Robot extends TimedRobot {
 		sideChooser.addDefault("Left", leftValue);
 		sideChooser.addObject("Center", centerValue);
 		sideChooser.addObject("Right", rightValue);
-		sideChooser.addObject("Left Wall", 3);
-		sideChooser.addObject("Right Wall", 4);
+	/*	sideChooser.addObject("Left Wall", 3);
+		sideChooser.addObject("Right Wall", 4);  */
 		SmartDashboard.putData("side Chooser", sideChooser);
 
 		delayChooser = new SendableChooser();

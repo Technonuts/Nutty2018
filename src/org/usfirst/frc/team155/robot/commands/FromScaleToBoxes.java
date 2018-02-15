@@ -29,21 +29,17 @@ public class FromScaleToBoxes extends CommandGroup {
     	
     	int angle;
     	boolean firstTurn = false;
-    	if(position == 1) {
-    		addSequential(new TurnRight());
-    		firstTurn = true;
-    	}
-    	else
-    		addSequential(new TurnLeft());
-    	
+    	addSequential(new MoveWrist(0));
+    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
+    	addSequential(new Turn180());
     	addSequential(new DriveStraightDistance(5, .5));
     	
-    	if(firstTurn == true)
+    	if(position == 0 || position == 3)
     		addSequential(new TurnLeft());
     	else
     		addSequential(new TurnRight());
     	
-    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
+    	//addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
     	//adjust lengths for drive distance
     }
 }

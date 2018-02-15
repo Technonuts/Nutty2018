@@ -1,15 +1,14 @@
 package org.usfirst.frc.team155.robot.commands;
 
-import org.usfirst.frc.team155.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class FromSwitchToBoxes extends CommandGroup {
 
-    public FromSwitchToBoxes(int position) {
+public class Turn180 extends CommandGroup {
+
+    public Turn180() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -26,19 +25,7 @@ public class FromSwitchToBoxes extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
-    	int angle;
-    	boolean firstTurn = false;
-    	addSequential(new MoveWrist(0));
-    	
-    	addSequential(new DriveStraightDistance(3, .5));
-    
-    	if(position == 2 || position == 4)
-    		addSequential(new TurnLeft());
-    	else
-    		addSequential(new TurnRight());
-    	
-    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
-    	//adjust lengths for drive distance
+    	addSequential(new TurnDriveAngle(180,.5));
+    	//make negative if robot turns right instead of left
     }
 }
