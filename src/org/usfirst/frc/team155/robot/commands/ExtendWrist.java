@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ExtendWrist extends Command {
 
+	
     public ExtendWrist() {
     	
         // Use requires() here to declare subsystem dependencies
@@ -17,6 +18,7 @@ public class ExtendWrist extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    
     	Robot.claw.extendWrist();
     }
 

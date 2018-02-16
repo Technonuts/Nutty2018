@@ -81,12 +81,12 @@ public class OI {
 		//openGripperButton.whenPressed(new OpenGripper());
 		rightStick = new Joystick(1);
 
-		highSpeedButton = new JoystickButton(rightStick, 1);
+		highSpeedButton = new JoystickButton(leftStick, 4);
 		highSpeedButton.whenPressed(new HighSpeed());
 		leftStick = new Joystick(0);
 
 
-		lowSpeedButton = new JoystickButton(leftStick, 1);
+		lowSpeedButton = new JoystickButton(leftStick, 3);
 		lowSpeedButton.whenPressed(new LowSpeed());
 
 		/*
@@ -94,10 +94,10 @@ public class OI {
 		suckCubeButton.whenPressed(new SuckingCube());
 		suckCubeButton.whenReleased(new HoldCube());
 */
-	suckCubeButton = new JoystickButton(switches, 5);
+	suckCubeButton = new JoystickButton(leftStick, 2);
 		suckCubeButton.whenPressed(new CubeAquire());
 		
-		spitCubeButton = new JoystickButton(switches, 4);
+		spitCubeButton = new JoystickButton(leftStick, 1);
 		spitCubeButton.whenPressed(new SpittingCube());
 		//spitCubeButton.whenReleased(new DrivingMode());
 
@@ -106,11 +106,11 @@ public class OI {
 		searchForCube.whenPressed(new SearchCube());
 		*/
 		
-		wristButton = new JoystickButton(switches, 8);
+		wristButton = new JoystickButton(rightStick, 8);
 		wristButton.whenPressed(new ExtendWrist());
 		wristButton.whenReleased(new RetractWrist());
 		
-		hangingButton = new JoystickButton(switches, 6);
+		hangingButton = new JoystickButton(rightStick, 6);
 		hangingButton.whenPressed(new startClimbing());
 		hangingButton.whenReleased(new stopClimbing());
 		
