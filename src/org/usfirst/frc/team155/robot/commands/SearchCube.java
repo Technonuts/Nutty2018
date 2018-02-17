@@ -34,9 +34,9 @@ public class SearchCube extends Command {
     	//System.out.println("stopCube");	
     }
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-    	if (Robot.claw.readCubeSensor() <= 12) {
+    // Make this return true when this Command no longer needs to run execute( )
+    protected boolean isFinished(  ) {
+    	if (    Robot.claw.readCubeSensor() <= 12) {
     		return true;
     	}
    	else 

@@ -49,7 +49,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 
 	//  Command autonomousCommand;
-	//SendableChooser<Command> chooser = new SendableChooser<>();
+	//SendableChooser<Command> chooser = new SendableChooser<>k);
 	Command autonomousCommand;
 	Command m_autonomousCommand;
 	SendableChooser autoChooser;
