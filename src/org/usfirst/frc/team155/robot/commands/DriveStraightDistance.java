@@ -58,7 +58,7 @@ public class DriveStraightDistance extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-    	System.out.println("straight drive int");
+    	//System.out.println("straight drive int");
     	Robot.drivetrain.getLeftEncoder().reset();
     	Robot.drivetrain.getRightEncoder().reset();
     	m_heading = Robot.drivetrain.getGyro();
@@ -68,17 +68,11 @@ public class DriveStraightDistance extends Command {
     @Override
     protected void execute() {
     	
-    	System.out.println("straight drive ex");
+    	//System.out.println("straight drive ex");
     	m_error = m_distance - Robot.drivetrain.getRightEncoder().getDistance();
-    	System.out.println("merror=" + m_error);
+    	/*System.out.println("merror=" + m_error);
     	System.out.println("mdistancer=" + m_distance);
-    	System.out.println("encoder=" + Robot.drivetrain.getRightEncoder().getDistance());
-        
-        
-    
-    	
-  
-
+    	System.out.println("encoder=" + Robot.drivetrain.getRightEncoder().getDistance());*/
 
     			goal_speed=m_driveForwardSpeed * kP * m_error;
 
@@ -94,13 +88,8 @@ public class DriveStraightDistance extends Command {
     			else
     				m_speed=goal_speed;					//change was slower than MaxDelta, so m_speed can be set to the goal speed
 
-    	//		m_speed=set_speed;
-    	
-    	
-    	
-    	
+    	//		m_speed=set_speed
     	/*
-    	
 		if (m_driveForwardSpeed * kP * m_error >= m_driveForwardSpeed) {
 			m_speed = m_driveForwardSpeed;
 		}
@@ -108,11 +97,9 @@ public class DriveStraightDistance extends Command {
 		else {
 			m_speed = m_driveForwardSpeed * kP * m_error;
 		}
-    	
-		
+   
 		*/
     	
-    			
 		m_drift = m_heading - Robot.drivetrain.getGyro();
 		m_turnrate = maxTurn * kPAng * m_drift;	
 		
@@ -121,9 +108,7 @@ public class DriveStraightDistance extends Command {
 		
 		if ( m_turnrate< -maxTurn)
 			m_turnrate=-maxTurn;
-		
-		
-		
+	
 		/*
     	m_drift = m_heading - Robot.drivetrain.getGyro();
     	if (maxTurn * kPAng * m_drift >= maxTurn) {
@@ -143,7 +128,7 @@ public class DriveStraightDistance extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-    	System.out.println("straight drive fin");
+    	//System.out.println("straight drive fin");
     	return Math.abs(m_error) <= kTolerance ;
     }
 

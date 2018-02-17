@@ -8,9 +8,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class FromScaleToBoxes extends CommandGroup {
-
+	private final double BEYONDSCALEDISTANCE = 95.5/12 ;
     public FromScaleToBoxes(int position) {
-        // Add Commands here:
+    
+    	
+        // Add Commands here:private final
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
@@ -31,13 +33,13 @@ public class FromScaleToBoxes extends CommandGroup {
     	boolean firstTurn = false;
     	addSequential(new MoveWrist(0));
     	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
-    	addSequential(new Turn180());
-    	addSequential(new DriveStraightDistance(5, .5));
+   // 	addSequential(new Turn180());
+    	addSequential(new DriveStraightDistance(- BEYONDSCALEDISTANCE, .5));
     	
-    	if(position == 0 || position == 3)
-    		addSequential(new TurnLeft());
-    	else
+    	if(position == 0 )
     		addSequential(new TurnRight());
+    	else
+    		addSequential(new TurnLeft());
     	
     	//addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
     	//adjust lengths for drive distance

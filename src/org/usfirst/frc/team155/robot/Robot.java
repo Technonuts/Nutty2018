@@ -29,6 +29,8 @@ import org.usfirst.frc.team155.robot.subsystems.Claw;
 import org.usfirst.frc.team155.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team155.robot.subsystems.Elevator;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -79,6 +81,7 @@ public class Robot extends TimedRobot {
 	public static Claw claw;
 	public static Elevator elevator;
 	public static RobotMap robotmap;
+	AHRS ahrs;
 	
 	private double autoDelay;
 
@@ -119,6 +122,7 @@ public class Robot extends TimedRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("One Box", oneBox);
 		autoChooser.addObject("Two Boxr", twoBox);
+		
 	
 	/*	autoChooser.addObject("Mega Scale", megaMode);
 		autoChooser.addObject("Priority 2 Scales", twoScaleMode);
@@ -183,13 +187,13 @@ public class Robot extends TimedRobot {
 		else {
 			position =0;
 		}
-		
+		// this is if we want to delay pick it on the smart dashboard
 		autoDelay = (double) delayChooser.getSelected();
 		
 		// schedule the autonomous command (example)
 		//if (autonomousCommand != null) autonomousCommand.start();
 		
-
+// this is getting the message from the fms
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		if(gameData.length() > 0) {
@@ -237,6 +241,7 @@ public class Robot extends TimedRobot {
 			//Other team switch right
 			theirSwitch = 'R';
 		} */
+		// main autonomous method
 		m_autonomousCommand = (Command) new Autonomous( mode, side, autoDelay, scaleValue, switchValue, position);
 
 		m_autonomousCommand.start();
@@ -265,9 +270,11 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
+	//
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		//this resets the elevator encoder to 0
         elevator.resetLow();
 		SmartDashboard.putNumber("Lift distance", elevator.getLiftEncoder().getDistance());
 		SmartDashboard.putNumber("cube distance", claw.cubeDistance);
