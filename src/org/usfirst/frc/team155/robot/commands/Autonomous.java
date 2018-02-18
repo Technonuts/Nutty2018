@@ -20,12 +20,18 @@ public class Autonomous extends CommandGroup {
 	private int switchScaleMode = 5;
 	private int scaleSwitchMode = 6;
 	private double angle=0;
-	private final double BEYONDBOX = (145 - 36 - -40)/12;
-	private final double SCALEDIST = (228.5 - 40 )/12;
-	private final double BACKTOSWITCH = 3;
-	private final double SWITCHDIST = (140 -40)/12;
+	private final double BEYONDBOX = (120)/12;
+	//12 foot switch lenght = 2ft
+	private final double SCALEDIST = (270)/12;
+	//distance to middle of switch - 18(toposition) - robot(40)
+	private final double BETWEENDIST = (210 )/12;
+	//halfway between scale and switch
+	private final double BACKTOSWITCH = 1;
+	private final double SWITCHDIST = (100)/12;
+	///140 to switch - length of robot (40) 
 	private final double PILEDIST = 4;
-	private final double OTHERSWITCH = 6;
+	private final double OTHERSWITCH = 108/12;
+//	distance from mindpoint to midpoint of switch plates
 	
 	public Autonomous(int mode, int side, double autoDelay, int scaleValue, int switchValue, int position) {
 		// System.out.println("Here2");
@@ -75,7 +81,7 @@ public class Autonomous extends CommandGroup {
 			} else {
 				// System.out.println("Switch and scale side = not our side");
 				// cross line
-				addSequential(new DriveStraightDistance(SCALEDIST, 0.5));
+				addSequential(new DriveStraightDistance(BETWEENDIST, 0.5));
 				addSequential(new TurnDriveAngle(angle, .5));
 				addSequential(new DriveStraightDistance(BEYONDBOX, 0.5));
 				addSequential (new MoveLift(Robot.elevator.FENCEHEIGHT));

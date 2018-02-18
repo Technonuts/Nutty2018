@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoScale extends CommandGroup {
-private double SCALEDISTANCE = (306 - 40)/12;
+private double SCALEDISTANCE = (266)/12;
+//324 to senter of scale - 18 inches traveled, - robot length(40)
 
 private int angle;
 

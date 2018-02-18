@@ -40,7 +40,7 @@ public class manualMoveLift extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.elevator.holdLift();
+    	Robot.elevator.holdLiftWithPower(.01);
     }
 
     // Called when another command which requires one or more of the same

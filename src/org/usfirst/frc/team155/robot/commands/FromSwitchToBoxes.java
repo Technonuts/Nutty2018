@@ -8,11 +8,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class FromSwitchToBoxes extends CommandGroup {
-private final double BEYONDSWITCHDISTANCE= 34/12;
+private final double BEYONDSWITCHDISTANCE= 68/12;
+//mid switch to edge switch = 28. robot length = 40
     public FromSwitchToBoxes(int position) {
        
     	int angle;
     	boolean firstTurn = false;
+    	
     	addSequential(new MoveWrist(0));
     	
     	addSequential(new DriveStraightDistance(BEYONDSWITCHDISTANCE , .5));

@@ -8,11 +8,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoSwitch extends CommandGroup {
-private double distance;
-private double shortDistance = 2;
-private double longDistance = 3;
+
 private int angle;
-private final double  SWITCHDISTANCE =( 148 - 40)/12;
+private final double  SWITCHDISTANCE = 110/12;
+//wall to middle of switch is 168. Robot length  = 40. to position  = 18
 
 
     public AutoSwitch( int side) {

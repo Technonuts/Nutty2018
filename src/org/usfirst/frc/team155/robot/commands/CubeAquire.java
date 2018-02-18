@@ -13,7 +13,7 @@ public class CubeAquire extends CommandGroup {
     	addSequential(new SearchCube());
     	addSequential(new SuckingCube());
     	addSequential(new HoldCube());
-    	addParallel(new MoveLift(Robot.elevator.FENCEHEIGHT));
+    	addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
     			
     }
 }
