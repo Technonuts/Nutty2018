@@ -64,7 +64,7 @@ public class SuckingCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("SuckF");
+    	//System.out.println("SuckF");
     	//new HoldCube();
     }
 

@@ -15,11 +15,11 @@ private int angle;
 
     public AutoScale( int side) {
     	System.out.println("running autoscale ");
-    	if(side==2) {
-    		angle =90;
+    	if(side==0) {
+    		angle = 90;
     	}
-    	else if(side==0) {
-    		angle=-90;
+    	else if(side==2) {
+    		angle= -90;
     	}
     	addSequential(new DriveStraightDistance(SCALEDISTANCE,.5));
     	addSequential(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));

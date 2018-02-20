@@ -33,13 +33,13 @@ public class Autonomous extends CommandGroup {
 	private final double OTHERSWITCH = 108/12;
 //	distance from mindpoint to midpoint of switch plates
 	
-	public Autonomous(int mode, int side, double autoDelay, int scaleValue, int switchValue, int position) {
+	public Autonomous(int mode, int side, double autoDelay, int scaleValue, int switchValue) {
 		// System.out.println("Here2");
 		// position 0 = left, 1 = center, 2=right
-		if (position == 0) {
+		if (side == 0) {
 			angle = 90;
 		}
-		if (position == 2) {
+		if (side == 2) {
 			angle = -90;
 		}
 		// addSequential(new DriveStraightDistance(3,.4));
@@ -48,7 +48,7 @@ public class Autonomous extends CommandGroup {
 
 		addSequential(new readForDelay(autoDelay)); // findSpot
 		// if the robot is on the left or on the right
-		if (position == 0 || position == 2) {
+		if (side == 0 || side == 2) {
 			// System.out.println("Mode=Edge Mode");
 			// this checks whether or not the switch is on the same side as our robot
 			if (switchValue == side) {
@@ -60,8 +60,8 @@ public class Autonomous extends CommandGroup {
 				// System.out.println("autoscale");
 				// do we want to get another cube
 				if (mode == 1) {
-					addSequential(new FromSwitchToBoxes(position));
-					addSequential(new GetCubeDumpSide(position));
+					addSequential(new FromSwitchToBoxes(side));
+					addSequential(new GetCubeDumpSide(side));
 
 				}
 			}

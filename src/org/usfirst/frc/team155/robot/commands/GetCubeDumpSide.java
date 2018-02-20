@@ -18,11 +18,11 @@ public class GetCubeDumpSide extends CommandGroup {
 	private int turnSpeed;
 
 		
-    public GetCubeDumpSide(int robotPosition) {
-    	if(robotPosition==0) {
+    public GetCubeDumpSide(int side) {
+    	if(side==0) {
     		angle = 90;
     	}
-    	else if(robotPosition==2) {
+    	else if(side==2) {
     		angle = -90;
     		
     	}

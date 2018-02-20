@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class FromSwitchToBoxes extends CommandGroup {
 private final double BEYONDSWITCHDISTANCE= 68/12;
 //mid switch to edge switch = 28. robot length = 40
-    public FromSwitchToBoxes(int position) {
+    public FromSwitchToBoxes(int side) {
        
     	int angle;
     	boolean firstTurn = false;
@@ -19,9 +19,9 @@ private final double BEYONDSWITCHDISTANCE= 68/12;
     	
     	addSequential(new DriveStraightDistance(BEYONDSWITCHDISTANCE , .5));
     
-    	if(position == 2)
+    	if(side == 2)
     		addSequential(new TurnLeft());
-    	else if(position==0)
+    	else if(side==0)
     		addSequential(new TurnRight());
     	
     	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
