@@ -16,7 +16,7 @@ public class SearchCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println("SeachS");
+    //	System.out.println("SeachS");
     	Robot.claw.openGripper();
     	//System.out.println("openGripper");
     	Robot.claw.suckCube();

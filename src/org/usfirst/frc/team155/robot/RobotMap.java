@@ -64,7 +64,7 @@ public class RobotMap {
     public static Encoder elevatorLiftEncoder;
 
     public static WPI_VictorSPX elevatorLift_1; 
-    public static WPI_VictorSPX elevatorLift_2; 
+   // public static WPI_VictorSPX elevatorLift_2; 
     
     public static VictorSP elevatorLeftHanger;
     public static VictorSP elevatorRightHanger;
@@ -79,6 +79,7 @@ public class RobotMap {
     public static DigitalInput elevatorSwitchHigh;
     public static DigitalInput elevatorSwitchLow;
     
+
     //2 speed controller and 2 pneumatic actuators for gripper
     
     public static DoubleSolenoid gripperPneumatics;
@@ -178,7 +179,7 @@ public class RobotMap {
         drivetrainRightDrive2.setInverted         (true);
         
         elevatorLift_1 = new WPI_VictorSPX    (7);
-        elevatorLift_2 = new WPI_VictorSPX       (5);    //change number *********
+       // elevatorLift_2 = new WPI_VictorSPX       (5);    //change number *********
         
         
         
