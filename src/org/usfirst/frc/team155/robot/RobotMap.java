@@ -88,7 +88,13 @@ public class RobotMap {
     public static double driveDistancePerPulse = 18.75/380/12;
     
     // wheel = 18 3/4"
-    
+    // one encoder tick is equal to 12.6 inches
+	public static final double FLOORHEIGHT = 0;
+	public static final double FENCEHEIGHT = 2.4;
+	public static final double LOWSCALEHEIGHT = 4.8;
+	public static final double HIGHSCALEHEIGHT = 6.7;
+	public static final double HANGHEIGHT = 7.2;
+   
     
 //>>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
 

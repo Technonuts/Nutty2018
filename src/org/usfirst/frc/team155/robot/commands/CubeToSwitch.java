@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -15,7 +16,7 @@ public class CubeToSwitch extends CommandGroup {
 	
 
     public CubeToSwitch() {
-    	addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
+    	addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
     	addSequential(new DriveStraightDistance(moveToFence, speed));
     	//open gripper
     	addSequential(new DriveStraightDistance(-secondStraightDistance, speed));

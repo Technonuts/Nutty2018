@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -20,18 +21,23 @@ public class Autonomous extends CommandGroup {
 	private int switchScaleMode = 5;
 	private int scaleSwitchMode = 6;
 	private double angle=0;
-	private final double BEYONDBOX = (120)/12;
-	//12 foot switch lenght = 2ft
-	private final double SCALEDIST = (270)/12;
+	
+	
+	
+	//	/1 vtick == 18.9in
+		//	.64 ticks == 12 in
+	private final double BEYONDBOX = 6.4;  // 120 in
+	//switch width = 12ft
+	private final double SCALEDIST = 14.3; //270in
 	//distance to middle of switch - 18(toposition) - robot(40)
-	private final double BETWEENDIST = (210 )/12;
+	private final double BETWEENDIST = 11.1;   //210
 	//halfway between scale and switch
-	private final double BACKTOSWITCH = 1;
-	private final double SWITCHDIST = (100)/12;
+	private final double BACKTOSWITCH = .64; // 12 in
+	private final double SWITCHDIST = 5.31;  //100
 	///140 to switch - length of robot (40) 
-	private final double PILEDIST = 4;
-	private final double OTHERSWITCH = 108/12;
-//	distance from mindpoint to midpoint of switch plates
+	private final double PILEDIST = 2.25; // 48 in
+	private final double OTHERSWITCH = 5.7;  //108 in
+//	distance from midpoint to midpoint of switch plates
 	
 	public Autonomous(int mode, int side, double autoDelay, int scaleValue, int switchValue) {
 		// System.out.println("Here2");
@@ -84,7 +90,7 @@ public class Autonomous extends CommandGroup {
 				addSequential(new DriveStraightDistance(BETWEENDIST, 0.5));
 				addSequential(new TurnDriveAngle(angle, .5));
 				addSequential(new DriveStraightDistance(BEYONDBOX, 0.5));
-				addSequential (new MoveLift(Robot.elevator.FENCEHEIGHT));
+				addSequential (new MoveLift(RobotMap.FENCEHEIGHT));
 				addSequential(new TurnDriveAngle(angle + angle, .5));
 				addSequential(new DriveStraightDistance(BACKTOSWITCH, 0.5));
 				addParallel(new ExtendWrist());
@@ -99,7 +105,7 @@ public class Autonomous extends CommandGroup {
 				//System.out.println("Switch our side");
 				// run switch command
 				addSequential(new DriveStraightDistance(SWITCHDIST, .5));
-				addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
+				addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
 				addSequential(new ExtendWrist());
 				addSequential(new SpittingCube());
 // get another cube
@@ -121,7 +127,7 @@ public class Autonomous extends CommandGroup {
 				addSequential(new ToPosition());
 				addSequential(new TurnDriveAngle(-90, .5));
 				addSequential(new DriveStraightDistance(OTHERSWITCH, .5));
-				addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
+				addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
 				addSequential(new TurnDriveAngle(0, .5));
 				addSequential(new DriveStraightDistance((SWITCHDIST - 1.5), .5));
 				

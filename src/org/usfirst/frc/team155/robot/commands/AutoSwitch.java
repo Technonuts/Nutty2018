@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -24,7 +25,7 @@ private final double  SWITCHDISTANCE = 110/12;
     	if(side==2) 
     		angle=-90;
     	
-    	addSequential(new MoveLift(Robot.elevator.FENCEHEIGHT));
+    	addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
     	addSequential(new DriveStraightDistance(SWITCHDISTANCE,.5));
     	addSequential(new ExtendWrist());
     	addSequential(new MoveWrist(angle));

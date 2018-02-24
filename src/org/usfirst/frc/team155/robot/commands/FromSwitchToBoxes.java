@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -24,7 +25,7 @@ private final double BEYONDSWITCHDISTANCE= 68/12;
     	else if(side==0)
     		addSequential(new TurnRight());
     	
-    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
+    	addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
     	//adjust lengths for drive distance
     }
 }

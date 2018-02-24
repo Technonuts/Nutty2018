@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -12,6 +13,7 @@ public class CubeToScale extends CommandGroup {
 	private int angle;
 	private double distance;
 	private double distance2, distance3;
+	public static RobotMap robotmap;
 	
     public CubeToScale(int side) {
     	
@@ -22,7 +24,7 @@ public class CubeToScale extends CommandGroup {
     		angle=-90;
     	}
     
-    	addParallel(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
+    	addParallel(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
     	addSequential(new DriveStraightDistance(-distance,.5));
     	addSequential(new TurnDriveAngle(angle,.5));
     	addSequential(new DriveStraightDistance(distance2,.5));

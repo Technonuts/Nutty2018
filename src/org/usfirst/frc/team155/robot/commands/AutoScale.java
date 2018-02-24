@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -22,7 +23,7 @@ private int angle;
     		angle= -90;
     	}
     	addSequential(new DriveStraightDistance(SCALEDISTANCE,.5));
-    	addSequential(new MoveLift(Robot.elevator.HIGHSCALEHEIGHT));
+    	addSequential(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
     	addSequential(new ExtendWrist());
     	addSequential(new MoveWrist(angle));
     	

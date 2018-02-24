@@ -1,6 +1,7 @@
 package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
+import org.usfirst.frc.team155.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -32,7 +33,7 @@ public class FromScaleToBoxes extends CommandGroup {
     	int angle;
     	boolean firstTurn = false;
     	addSequential(new MoveWrist(0));
-    	addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
+    	addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
    // 	addSequential(new Turn180());
     	addSequential(new DriveStraightDistance(- BEYONDSCALEDISTANCE, .5));
     	

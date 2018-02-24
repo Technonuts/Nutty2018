@@ -12,9 +12,9 @@ public class ToPosition extends CommandGroup {
 	
     public ToPosition() {
     	 	
-    	System.out.println("ENter toposition");
+    	System.out.println("ENter to position");
       	addSequential(new DriveStraightDistance(dist,.25));
-      	System.out.println("at toposition ");
+      	System.out.println("out of toposition ");
       
         // Add Commands here:
         // e.g. addSequential(new Command1());
