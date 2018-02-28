@@ -69,6 +69,9 @@ public class OI {
 	public JoystickButton liftButtonHighScale;
 	public JoystickButton climbButton;
 	public JoystickButton driveTest;
+	public JoystickButton turn90;
+	public JoystickButton turnother90;
+
 
 	public static RobotMap robotmap;
 
@@ -106,6 +109,13 @@ public class OI {
 
 		spitCubeButton = new JoystickButton(leftStick, 1);
 		spitCubeButton.whenPressed(new SpittingCube());
+		
+		turn90 = new JoystickButton(leftStick,5 );
+		turn90.whenPressed(new MoveWrist(90));
+		
+		turnother90 = new JoystickButton(leftStick,6 );
+		turnother90.whenPressed(new MoveWrist(-90));
+		
 		//spitCubeButton.whenReleased(new DrivingMode());
 
 		/*

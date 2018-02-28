@@ -11,11 +11,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoSwitch extends CommandGroup {
 
 private int angle;
-private final double  SWITCHDISTANCE = 4.34; //82 inches distance to switch - distance of toPosition
-//wall to middle of switch is 168. Robot length  = 40. to position  = 18
 
 
-    public AutoSwitch( int side) {
+    public AutoSwitch( int side, double distance) {
 
     	//System.out.println("running auto switch ");
     	//
@@ -26,7 +24,7 @@ private final double  SWITCHDISTANCE = 4.34; //82 inches distance to switch - di
     		angle=-90;
     	
     	addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
-    	addSequential(new DriveStraightDistance(SWITCHDISTANCE,.5)); 
+    	addSequential(new DriveStraightDistance(distance,.5)); 
 
     	addSequential(new ExtendWrist());
     	addSequential(new MoveWrist(angle));

@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
 	//SendableChooser<Command> chooser = new SendableChooser<>k);
 	Command autonomousCommand;
 	Command m_autonomousCommand;
-	SendableChooser autoChooser;
+	//SendableChooser autoChooser;
 	SendableChooser sideChooser;
 	SendableChooser delayChooser;
 	public int side;
@@ -108,10 +108,10 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 
 
-		autoChooser = new SendableChooser();
+/*		autoChooser = new SendableChooser();
 		autoChooser.addDefault("One Box", oneBox);  //0
 		autoChooser.addObject("Two Boxr", twoBox);  //1
-		
+	*?	
 	
 	/*	autoChooser.addObject("Mega Scale", megaMode);
 		autoChooser.addObject("Priority 2 Scales", twoScaleMode);
@@ -139,7 +139,7 @@ public class Robot extends TimedRobot {
 		delayChooser.addObject("1 Seconds", 1);//4
 		SmartDashboard.putData("Auto Delay", delayChooser);
 
-		SmartDashboard.putData("Auto mode", autoChooser);
+	//	SmartDashboard.putData("Auto mode", autoChooser);
 				
 
 	}
@@ -169,7 +169,7 @@ public class Robot extends TimedRobot {
 		//char ourSwitch, scale, theirSwitch;
 		//autonomousCommand = chooser.getSelected();
 		side = (int)sideChooser.getSelected();
-		mode = (int)autoChooser.getSelected();
+	//	mode = (int)autoChooser.getSelected();
 		
 		// this is if we want to delay pick it on the smart dashboard
 		autoDelay = (double) delayChooser.getSelected();
@@ -226,8 +226,10 @@ public class Robot extends TimedRobot {
 			theirSwitch = 'R';
 		} */
 		// main autonomous method
-		m_autonomousCommand = (Command) new Autonomous( mode, side, autoDelay, scaleValue, switchValue);
+	//	m_autonomousCommand = (Command) new Autonomous( mode, side, autoDelay, scaleValue, switchValue);
+		m_autonomousCommand = (Command) new Autonomous( side, autoDelay, scaleValue, switchValue);
 
+		
 		m_autonomousCommand.start();
 	}
 

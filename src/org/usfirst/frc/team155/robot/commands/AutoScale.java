@@ -9,12 +9,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutoScale extends CommandGroup {
-private double SCALEDISTANCE = (266)/12;
-//324 to senter of scale - 18 inches traveled, - robot length(40)
+
 
 private int angle;
 
-    public AutoScale( int side) {
+    public AutoScale( int side, double distance) {
     	System.out.println("running autoscale ");
     	if(side==0) {
     		angle = 90;
@@ -22,10 +21,11 @@ private int angle;
     	else if(side==2) {
     		angle= -90;
     	}
-    	addSequential(new DriveStraightDistance(SCALEDISTANCE,.5));
+    	addSequential(new DriveStraightDistance(distance,.5));
     	addSequential(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
-    	addSequential(new ExtendWrist());
-    	addSequential(new MoveWrist(angle));
+    //	addSequential(new ExtendWrist());
+    //	addSequential(new MoveWrist(angle));
+    	addSequential(new TurnDriveAngle(angle,.5));
     	
     	addSequential(new SpittingCube());
     	//addSequential(new TurnDriveAngle(angle,.5));

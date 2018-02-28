@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DoubleSwitchAuto extends CommandGroup {
 
     public DoubleSwitchAuto(int position, int switchValue, int travelLength) {
-    	addSequential(new AutoSwitch(position)); 
+ //////// /.position.///  	addSequential(new AutoSwitch(position)); 
 		addSequential(new FromSwitchToBoxes(position));
 		addSequential(new GetCube(position));	
 		addSequential(new CubeToSwitch());

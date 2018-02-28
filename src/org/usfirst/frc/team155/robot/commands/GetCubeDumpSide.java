@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GetCubeDumpSide extends CommandGroup {
 
 	private int angle;
-	private final double BOXDISTANCE = 1.5;
+	private final double BOXDISTANCE = 1;
 	//to middle of switch
 	private int secondStraightDistance;
 	private int driveToCube;

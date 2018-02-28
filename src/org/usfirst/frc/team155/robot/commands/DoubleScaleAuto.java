@@ -10,7 +10,7 @@ public class DoubleScaleAuto extends CommandGroup {
     public DoubleScaleAuto(int position, int scaleValue, int travelLength) {
     	if(position==scaleValue) {
     		//2 scale
-    		addSequential(new AutoScale(position)); 
+    	//	addSequential(new AutoScale(position)); 
     		addSequential(new FromScaleToBoxes(position));
     		addSequential(new GetCube(position));
     		addSequential(new CubeToScale(position));

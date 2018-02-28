@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class FromScaleToBoxes extends CommandGroup {
-	private final double BEYONDSCALEDISTANCE = 95.5/12 ;
+	private final double BEYONDSCALEDISTANCE = 3.12 ; //95.9in
     public FromScaleToBoxes(int position) {
     
     	
@@ -31,16 +31,24 @@ public class FromScaleToBoxes extends CommandGroup {
         // arm.
     	
     	int angle;
+    	
+    	if(position == 0 ) {
+    		addSequential(new TurnRight());
+    	angle = -90;
+    	}
+    	else {
+    		addSequential(new TurnLeft());
+    	angle = 90;
+    	}
+    	
     	boolean firstTurn = false;
-    	addSequential(new MoveWrist(0));
+    //	addSequential(new MoveWrist(0));
+    	addSequential(new TurnDriveAngle(angle, .5));
     	addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
    // 	addSequential(new Turn180());
     	addSequential(new DriveStraightDistance(- BEYONDSCALEDISTANCE, .5));
     	
-    	if(position == 0 )
-    		addSequential(new TurnRight());
-    	else
-    		addSequential(new TurnLeft());
+    	
     	
     	//addSequential(new MoveLift(Robot.elevator.FLOORHEIGHT));
     	//adjust lengths for drive distance
