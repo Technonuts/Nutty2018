@@ -25,7 +25,7 @@ public class SuckingCube extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute() {/*
     	
     	if (Robot.claw.readCubeSensor() < 12) //distance in inches
     		/*
@@ -36,7 +36,7 @@ public class SuckingCube extends Command {
     		else if (Timer.getFPGATimestamp() >= startTime + 1) {
     			Robot.claw.openGripper();
     			}
-    		else {*/Robot.claw.closeGripper();
+    		else {*///Robot.claw.closeGripper();
     			
     		//}
     	/*else if (Robot.claw.readCubeSensor() >= 24) {
@@ -45,19 +45,25 @@ public class SuckingCube extends Command {
     		
     		//System.out.println("suckCube2");	
     	}*/
-    	else { Robot.claw.suckCube();
+    	//else { Robot.claw.suckCube();
     	//System.out.println("stopCube");
-    		Robot.claw.openGripper();
+    	//	Robot.claw.openGripper();
     		//new SearchCube();
     		
-    	}
+    	//}
+    	
+    	Robot.claw.suckCube();
+    	//System.out.println("stopCube");
+    		Robot.claw.openGripper();
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.claw.leftCubeSwitch() && Robot.claw.rightCubeSwitch())
+    	if (Robot.claw.leftCubeSwitch() && Robot.claw.rightCubeSwitch()) {
+    		Robot.claw.closeGripper();
     		return true;
+    	}
     	else
         return false;
     }

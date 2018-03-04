@@ -8,9 +8,13 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
+
+//retract after get cube
+
 package org.usfirst.frc.team155.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
 
@@ -59,9 +63,13 @@ public class OI {
 	public JoystickButton closeGripperButton;
 	public Joystick switches;
 	public JoystickButton suckCubeButton;
+	public JoystickButton searchCubeButton;
+	public JoystickButton openCubeButton;
+	public JoystickButton closeCubeButton;
 	public JoystickButton spitCubeButton;
 	public JoystickButton searchForCube;
-	public JoystickButton wristButton;
+	public JoystickButton wristextButton;
+	public JoystickButton wristretButton;
 	public JoystickButton hangingButton;
 	public JoystickButton liftButtonFence;
 	public JoystickButton liftButtonFloor;
@@ -71,6 +79,7 @@ public class OI {
 	public JoystickButton driveTest;
 	public JoystickButton turn90;
 	public JoystickButton turnother90;
+
 
 
 	public static RobotMap robotmap;
@@ -88,34 +97,68 @@ public class OI {
 		switches = new Joystick(2);
 		rightStick = new Joystick(1);
 		leftStick = new Joystick(0);
+		
 		//closeGripperButton = new JoystickButton(switches, 1);
 		//closeGripperButton.whenPressed(new CloseGripper());
 		//openGripperButton = new JoystickButton(switches, 2);
 		//openGripperButton.whenPressed(new OpenGripper())
+		
+		int direction = switches.getPOV(0);
 
-		highSpeedButton = new JoystickButton(leftStick, 4);
+		if (direction == 90) { // DPAD UP button is pressed
+		  new MoveWrist(90);
+		} 
+		else if (direction == 45) { // DPAD DOWN button is pressed
+		  // do something else
+			  new MoveWrist(45);
+		}
+		else if (direction == 0) { // DPAD DOWN button is pressed
+			  // do something else
+			  new MoveWrist(0);
+			  
+			}
+		else if (direction == 315) { // DPAD DOWN button is pressed
+			  // do something else
+			  new MoveWrist(-45);
+			}
+		else if (direction == 270) { // DPAD DOWN button is pressed
+			  // do something else
+			  new MoveWrist(-90);
+			}
+		
+
+		// You can interpret the D-pad as an axis as well:
+		//double dpadYAxisValue = Math.cos(Math.toRadians(direction));
+		//double dpadXAxisValue = Math.sin(Math.toRadians(direction));
+
+		
+
+		highSpeedButton = new JoystickButton(leftStick, 1);
 		highSpeedButton.whenPressed(new HighSpeed());
 
-		lowSpeedButton = new JoystickButton(leftStick, 3);
+		lowSpeedButton = new JoystickButton(rightStick, 1);
 		lowSpeedButton.whenPressed(new LowSpeed());
 
-		/*
-		suckCubeButton = new JoystickButton(switches, 5);
-		suckCubeButton.whenPressed(new SuckingCube());
-		suckCubeButton.whenReleased(new HoldCube());
-		 */
-		suckCubeButton = new JoystickButton(leftStick, 2);
-		suckCubeButton.whenPressed(new CubeAquire());
+		
+		closeCubeButton = new JoystickButton(rightStick, 6);
+		closeCubeButton.whenPressed(new CloseCube());
+		//suckCubeButton.whenReleased(new HoldCube());
+		openCubeButton = new JoystickButton(rightStick, 5);
+		openCubeButton.whenPressed(new OpenCube());
+		
+		 
+		searchCubeButton = new JoystickButton(rightStick, 4);    //right stick   trigger
+		searchCubeButton.whenPressed(new CubeAquire());
 
-		spitCubeButton = new JoystickButton(leftStick, 1);
+		spitCubeButton = new JoystickButton(rightStick, 3);  //button
 		spitCubeButton.whenPressed(new SpittingCube());
-		
-		turn90 = new JoystickButton(leftStick,5 );
+
+	/*	turn90 = new JoystickButton(leftStick,5 );
 		turn90.whenPressed(new MoveWrist(90));
-		
+
 		turnother90 = new JoystickButton(leftStick,6 );
 		turnother90.whenPressed(new MoveWrist(-90));
-		
+*/
 		//spitCubeButton.whenReleased(new DrivingMode());
 
 		/*
@@ -123,35 +166,40 @@ public class OI {
 		searchForCube.whenPressed(new SearchCube());
 		 */
 
-		wristButton = new JoystickButton(rightStick, 8);
-		wristButton.whenPressed(new ExtendWrist());
-		wristButton.whenReleased(new RetractWrist());
+		wristextButton = new JoystickButton(switches, 1);
+		wristextButton.whenPressed(new ExtendWrist());
+		
+		wristretButton = new JoystickButton(switches, 2);
+		wristretButton.whenPressed(new RetractWrist());
 
 		/*	hangingButton = new JoystickButton(rightStick, 6);
 		hangingButton.whenPressed(new startClimbing());
 		hangingButton.whenReleased(new stopClimbing());
 		 */
-		liftButtonFence = new JoystickButton(switches, 4);
-		liftButtonFence.whenPressed(new MoveLift(RobotMap.FENCEHEIGHT));
+		liftButtonFence = new JoystickButton(switches, 3);
+		//liftButtonFence.whenPressed(new MoveLift(RobotMap.FENCEHEIGHT));
 
-		liftButtonFloor = new JoystickButton(switches, 3);
-		liftButtonFloor.whenPressed(new MoveLift(RobotMap.FLOORHEIGHT));
+		//liftButtonFloor = new JoystickButton(switches, 3);
+		//liftButtonFloor.whenPressed(new MoveLift(RobotMap.FLOORHEIGHT));
 
-		liftButtonLowScale = new JoystickButton(switches, 5);
-		liftButtonLowScale.whenPressed(new MoveLift(RobotMap.LOWSCALEHEIGHT));
+		liftButtonLowScale = new JoystickButton(switches, 4);
+		//liftButtonLowScale.whenPressed(new MoveLift(RobotMap.LOWSCALEHEIGHT));
 
-		liftButtonHighScale = new JoystickButton(switches, 6);
-		liftButtonHighScale.whenPressed(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
+		liftButtonHighScale = new JoystickButton(switches, 5);
+		//liftButtonHighScale.whenPressed(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
 
-		climbButton = new JoystickButton(switches, 2);
+		climbButton = new JoystickButton(switches, 6);
 		climbButton.whenPressed(new  startClimbing());
+		//climbButton.whenPressed(new RetractWrist());
 		climbButton.whenReleased(new stopClimbing());
 
 
-		driveTest = new JoystickButton(switches, 9);     //change number
-		driveTest.whenPressed(new TestDrive(distance1, speed1));
-		driveTest.whenReleased(new TestDrive(distance2, speed2));
+		//driveTest = new JoystickButton(switches, 9);     //change number
+		//driveTest.whenPressed(new TestDrive(distance1, speed1));
+		//driveTest.whenReleased(new TestDrive(distance2, speed2));
 
+		//Jake: extend/retract +setpontrs on elevator, climbing
+		//Sarah: high low on diffferent switches, suck/spit on right, 
 
 		//this is for a commit
 		// SmartDashboard Buttons
@@ -185,6 +233,8 @@ public class OI {
 	public Joystick getSwitches() {
 		return switches;
 	}
+	
+	
 
 	// END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=FUNCTIONS
 }

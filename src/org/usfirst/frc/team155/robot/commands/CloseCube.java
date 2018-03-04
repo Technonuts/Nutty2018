@@ -2,40 +2,45 @@ package org.usfirst.frc.team155.robot.commands;
 
 import org.usfirst.frc.team155.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ExtendWrist extends Command {
+public class CloseCube extends Command {
 
+	private double startTime;
 	
-    public ExtendWrist() {
-    	
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.claw);
-    }
+    public CloseCube() {
+      requires(Robot.claw);
+    } 
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    
-    	Robot.claw.extendWrist();
+    	System.out.println("HoldS");
+    	Robot.claw.closeGripper();
+    	Robot.claw.stopCube();
+    	startTime = Timer.getFPGATimestamp();
     }
 
-    // Called repeated  ly when this Command is scheduled to run
+    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.claw.extendWrist();
-     }
+    }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    
+    	if (Timer.getFPGATimestamp() >= startTime + 0.5)
     		return true;
-    	
+    	else
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("HoldF");
+    	//new MoveLift(Robot.elevator.FENCEHEIGHT);
+    	
     }
 
     // Called when another command which requires one or more of the same

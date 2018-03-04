@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Autonomous extends CommandGroup {
 
-/*	private int leftValue = 0;
+	/*
+		private int leftValue = 0;
 	private int centerValue = 1;
 	private int rightValue = 2;
 	private int scaleMode = 0;
@@ -20,35 +21,60 @@ public class Autonomous extends CommandGroup {
 	private int twoSwitchMode = 4;
 	private int switchScaleMode = 5;
 	private int scaleSwitchMode = 6;
-	*/
+	 */
 	private double angle=0;
-	
-	
-	
+
+
+
 	//	/1 vtick == 18.9in
-		//	.64 ticks == 12 in
-	private final double BEYONDBOX = 6.4;  // 120 in
+	//	.64 ticks == 12 in
+
+
+	/////////////////////////////////////////////////////////////assuming 360
+	private final double BEYONDBOX = 120*19.1;  // 120 in
 	//switch width = 12ft
-	private final double SCALEDIST = 15.3; //270in
+	private final double SCALEDIST = (270*19.1); //15.3; 270in
 	//distance to middle of switch - 18(toposition) - robot(40)
-	private final double BETWEENDIST = 11.1;   //210
+	private final double BETWEENDIST = (210*19.1); //11.1;   210
 	//halfway between scale and switch
-	private final double BACKTOSWITCH = .64; // 12 in
-	private final double SWITCHDIST = 6.31;  //100
+	private final double BACKTOSWITCH = (12*19.1); // 12 in
+	private final double SWITCHDIST = (100*19.1);  //100
 	///140 to switch - length of robot (40) 
-	private final double PILEDIST = 2.25; // 48 in
-	private final double OTHERSWITCH = 5.7;  //108 in
+	private final double PILEDIST = (48*19.1); // 48 in
+	private final double OTHERSWITCH = (108*19.1);  //108 in
+	//	distance from midpoint to midpoint of switch plates
+
+
+
+	///////////////////////////////////////////////////////////asssuming 90
+	/*
+	private final double BEYONDBOX = (120* 4.77); // 120 in
+	//switch width = 12ft
+	private final double SCALEDIST = (270*4.77); //15.3; 270in
+	//distance to middle of switch - 18(toposition) - robot(40)
+	private final double BETWEENDIST = (210*4.77); //11.1;   210
+	//halfway between scale and switch
+	private final double BACKTOSWITCH = (12*4.77); // 12 in
+	private final double SWITCHDIST = (100*;  /4.77/100
+	///140 to switch - length of robot (40) 
+	private final double PILEDIST = (48*4.77); // 48 in
+	private final double OTHERSWITCH = (108*4.77);  //108 in
 //	distance from midpoint to midpoint of switch plates
 
+	 */
 	//324 to senter of scale - 18 inches traveled, - robot length(40)
-	
+
 	//82 inches distance to switch - distance of toPosition
-	
+
 	//public Autonomous(int mode, int side, double autoDelay, int scaleValue, int switchValue) {
 	public Autonomous(int side, double autoDelay, int scaleValue, int switchValue) {
 
-	
-	// System.out.println("Here2");
+
+
+
+
+
+		// System.out.println("Here2");
 		// position 0 = left, 1 = center, 2=right
 		if (side == 0) {
 			angle = 90;
@@ -61,6 +87,9 @@ public class Autonomous extends CommandGroup {
 		// addSequential(new DriveStraightDistance(3,.4));
 
 		addSequential(new readForDelay(autoDelay)); // findSpot
+	
+		new RetractWrist();
+		
 		// if the robot is on the left or on the right
 		if (side == 0 || side == 2) {
 			// System.out.println("Mode=Edge Mode");
@@ -72,7 +101,7 @@ public class Autonomous extends CommandGroup {
 				addSequential(new AutoSwitch(side, SWITCHDIST));
 				// System.out.println("autoscale");
 				// do we want to get another cube
-	
+				/*
 					addSequential(new FromSwitchToBoxes(side));
 					addSequential(new GetCubeDumpSide(side));
 					addSequential(new MoveWrist(0));
@@ -82,22 +111,23 @@ public class Autonomous extends CommandGroup {
 			    	addSequential(new DriveStraightDistance(-1, .5));
 			    	addSequential(new MoveWrist(angle));
 			    	addSequential(new SpittingCube());
-			
-			    		
-			    	
+				 */
+
+
 			}
 
-			
-			
+
+
 			//pall elev to seq ///////////////////////////////////////////////////////////////////////////////////////////////////////
-			
-			
+
+
 			else if (scaleValue == side) {
 				// System.out.println("MSwitch side = our side");
 				// run switch command
 				////addSequential(new ToPosition());
 				// System.out.println("toPosition");
 				addSequential(new AutoScale(side, SCALEDIST));
+				/*
 				addSequential(new FromScaleToBoxes(side));
 				if(switchValue == side) {
 				addSequential(new GetCubeDumpSide(side));
@@ -113,27 +143,32 @@ public class Autonomous extends CommandGroup {
 			       	addSequential(new SpittingCube());
 			       	addSequential(new DriveStraightDistance(-2, .5));
 			     	addSequential (new MoveLift(RobotMap.FLOORHEIGHT));
-			   
-				}
+
+				}*/
 				// System.out.println("autoswitch");
-			
-			
-			
+
+
+
 			} else {
 				// System.out.println("Switch and scale side = not our side");
 				// cross line
 				addSequential(new DriveStraightDistance(BETWEENDIST, 0.5));
 				addSequential(new TurnDriveAngle(angle, .5));
 				addSequential(new DriveStraightDistance(BEYONDBOX, 0.5));
-				addSequential (new MoveLift(RobotMap.FENCEHEIGHT));
 				addSequential(new TurnDriveAngle(angle + angle, .5));
+				addSequential (new MoveLift(RobotMap.FENCEHEIGHT));
+
 				addSequential(new DriveStraightDistance(BACKTOSWITCH, 0.5));
 				addParallel(new ExtendWrist());
 				addSequential(new SpittingCube());
 
 			}
 
-		} else {
+		}
+
+		else {
+
+
 			//System.out.println("Mode=Switch Mode");
 			// robot is in the center and switch is on our side
 			if (switchValue == side) {
@@ -143,8 +178,8 @@ public class Autonomous extends CommandGroup {
 				addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
 				addSequential(new ExtendWrist());
 				addSequential(new SpittingCube());
-// get another cube
-				
+				// get another cube
+				/*
 					addSequential(new DriveStraightDistance(-1, .5));
 					addSequential(new TurnDriveAngle(-90, .5));
 					addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
@@ -164,14 +199,14 @@ public class Autonomous extends CommandGroup {
 					addSequential(new TurnDriveAngle(0, .5));
 					addSequential(new DriveStraightDistance(1, .5));
 					addSequential(new SpittingCube());
+				 */
 
-			
 
 			} else {
 				//System.out.println("switch other side");
 				// run other switch command
-			//	addSequential(new ToPosition());
-			// add 
+				//	addSequential(new ToPosition());
+				// add 
 				addSequential(new TurnDriveAngle(-90, .5));
 				addSequential(new DriveStraightDistance(OTHERSWITCH, .5));
 				addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
@@ -179,7 +214,7 @@ public class Autonomous extends CommandGroup {
 				addSequential(new DriveStraightDistance((SWITCHDIST - 1.5), .5));
 				addSequential(new ExtendWrist());
 				addSequential(new SpittingCube());
-				
+				/*
 				addSequential(new DriveStraightDistance(-1, .5));
 				addSequential(new TurnDriveAngle(90, .5));
 				addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
@@ -189,7 +224,7 @@ public class Autonomous extends CommandGroup {
 				addSequential(new TurnDriveAngle(0, .5));
 				addSequential(new DriveStraightDistance(1, .5));
 				addSequential(new SpittingCube());
-
+				 */
 				// new oppositeSwitch(position, side);
 			}
 
@@ -225,5 +260,6 @@ public class Autonomous extends CommandGroup {
 		 * else { System.out.println("mode = nothing "); //do nothing }
 		 */
 	}
+
 
 }

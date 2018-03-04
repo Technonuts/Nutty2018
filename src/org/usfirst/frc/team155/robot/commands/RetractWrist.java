@@ -19,12 +19,13 @@ public class RetractWrist extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if(Robot.claw.getArmPosition() > -5 && Robot.claw.getArmPosition() < 5)
+    	//if(Robot.claw.getArmPosition() > -5 && Robot.claw.getArmPosition() < 5)
     	Robot.claw.retractWrist();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.claw.retractWrist();
     }
 
     // Make this return true when this Command no longer needs to run execute()
