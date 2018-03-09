@@ -27,10 +27,12 @@ private int angle;
     	addSequential(new DriveStraightDistance(distance,.5)); 
 
     
-    	addSequential(new MoveWrist(angle));
-    	//addSequential(new TurnDriveAngle(angle,.5));
+    	//addSequential(new MoveWrist(angle));
+    	addSequential(new TurnDriveAngle(angle,.5));
     	//addSequential(new DriveStraightDistance(distance,.25));
+    	addSequential(new ExtendWrist());
     	addSequential(new SpittingCube());
+    	addSequential(new RetractWrist());
     	//addSequential(new DriveStraightDistance(-1,.5));
    
     	//System.out.println("at auto switch ");

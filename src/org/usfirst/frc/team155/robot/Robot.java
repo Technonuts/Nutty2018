@@ -30,7 +30,7 @@ import org.usfirst.frc.team155.robot.subsystems.Claw;
 import org.usfirst.frc.team155.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team155.robot.subsystems.Elevator;
 
-import com.kauailabs.navx.frc.*;
+// com.kauailabs.navx.frc.*;
 
 
 //import edu.wpi.first.wpilibj.CameraServer;
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
 	public static Claw claw;
 	public static Elevator elevator;
 	public static RobotMap robotmap;
-	AHRS ahrs;
+	//AHRS ahrs;
 	
 	private double autoDelay;
 
@@ -95,6 +95,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		Robot.drivetrain.lowSpeed();
 		robotmap = new RobotMap();
 		robotmap.init();
 		
@@ -164,7 +165,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousInit() {
+		Robot.drivetrain.setBrakeMode();
 	Robot.drivetrain.resetGyro();
+
 		
 		
 		//char ourSwitch, scale, theirSwitch;
@@ -228,7 +231,7 @@ public class Robot extends TimedRobot {
 		} */
 		// main autonomous method
 		//m_autonomousCommand = (Command) new Autonomous( mode, side, autoDelay, scaleValue, switchValue);
-		m_autonomousCommand = (Command) new Autonomous( side, 0, scaleValue, switchValue);
+		//m_autonomousCommand = (Command) new Autonomous( side, 0, scaleValue, switchValue);
 		//m_autonomousCommand = (Command) new DriveStraightDistance(6.5,.5);
 		
 		m_autonomousCommand.start();
@@ -248,6 +251,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		Robot.drivetrain.resetGyro();
+		Robot.drivetrain.setCoastMode();
 		
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to

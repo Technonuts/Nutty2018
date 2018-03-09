@@ -13,7 +13,7 @@ package org.usfirst.frc.team155.robot.subsystems;
 import org.usfirst.frc.team155.robot.Robot;
 import org.usfirst.frc.team155.robot.RobotMap;
 import org.usfirst.frc.team155.robot.commands.MoveLift;
-import org.usfirst.frc.team155.robot.commands.MoveWrist;
+import org.usfirst.frc.team155.robot.commands.OLDMoveWrist;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;

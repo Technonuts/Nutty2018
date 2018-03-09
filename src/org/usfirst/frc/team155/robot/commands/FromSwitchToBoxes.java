@@ -16,7 +16,7 @@ private final double BEYONDSWITCHDISTANCE= 68/12;
     	int angle;
     	boolean firstTurn = false;
     	
-    	addSequential(new MoveWrist(0));
+    	addSequential(new OLDMoveWrist(0));
     	
     	addSequential(new DriveStraightDistance(BEYONDSWITCHDISTANCE , .5));
     

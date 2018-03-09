@@ -106,24 +106,24 @@ public class OI {
 		int direction = switches.getPOV(0);
 
 		if (direction == 90) { // DPAD UP button is pressed
-		  new MoveWrist(90);
+		  new OLDMoveWrist(90);
 		} 
 		else if (direction == 45) { // DPAD DOWN button is pressed
 		  // do something else
-			  new MoveWrist(45);
+			  new OLDMoveWrist(45);
 		}
 		else if (direction == 0) { // DPAD DOWN button is pressed
 			  // do something else
-			  new MoveWrist(0);
+			  new OLDMoveWrist(0);
 			  
 			}
 		else if (direction == 315) { // DPAD DOWN button is pressed
 			  // do something else
-			  new MoveWrist(-45);
+			  new OLDMoveWrist(-45);
 			}
 		else if (direction == 270) { // DPAD DOWN button is pressed
 			  // do something else
-			  new MoveWrist(-90);
+			  new OLDMoveWrist(-90);
 			}
 		
 
@@ -148,7 +148,8 @@ public class OI {
 		
 		 
 		searchCubeButton = new JoystickButton(rightStick, 4);    //right stick   trigger
-		searchCubeButton.whenPressed(new CubeAquire());
+		searchCubeButton.whenReleased(new CubeAquire());
+		searchCubeButton.whileHeld(new CubeAquireClosed());
 
 		spitCubeButton = new JoystickButton(rightStick, 3);  //button
 		spitCubeButton.whenPressed(new SpittingCube());

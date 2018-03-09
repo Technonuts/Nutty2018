@@ -86,7 +86,8 @@ public class RobotMap {
     public static DoubleSolenoid gripperPneumatics;
     
     public static double liftDistancePerPulse = 3.75/4553;
-    public static double driveDistancePerPulse = 18.75/380/12;
+ 
+      public static double driveDistancePerPulse = 18.75/380/12; 
     
     // wheel = 18 3/4"
     // one encoder tick is equal to 12.6 inches

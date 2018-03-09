@@ -57,10 +57,10 @@ public class TankDrive extends Command {
     	drivePower=(leftStick+rightStick)/2;
     	stickDifferential =rightStick- leftStick;
     	motorDifferential = Kp*(stickDifferential-(Robot.drivetrain.getGyroRate()/360));
-    	//Robot.drivetrain.tankDrivejoyGyro(drivePower-motorDifferential,drivePower+motorDifferential);
+    	Robot.drivetrain.tankDrivejoyGyro(drivePower-motorDifferential,drivePower+motorDifferential);
     	
     	
-    	Robot.drivetrain.tankDrivejoy(Robot.oi.getLeftStick(),Robot.oi.getRightStick());
+    	//Robot.drivetrain.tankDrivejoy(Robot.oi.getLeftStick(),Robot.oi.getRightStick());
     }
     // Called repeatedly when this Command is scheduled to run
     @Override

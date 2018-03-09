@@ -29,7 +29,7 @@ public class GetCubeDumpSide extends CommandGroup {
     	speed = 1;
     	addSequential(new DriveStraightDistance(BOXDISTANCE, speed));
     	addParallel(new CubeAquire());
-    	addSequential(new MoveWrist(angle));
+    	addSequential(new OLDMoveWrist(angle));
     	addSequential(new SpittingCube());
     	//addSequential(new TurnDriveAngle(-angle, turnSpeed));
     	//addSequential(new DriveStraightDistance(secondStraightDistance, speed));
