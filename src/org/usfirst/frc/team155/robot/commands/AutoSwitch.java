@@ -24,7 +24,7 @@ private int angle;
     		angle=-90;
     	
     	addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
-    	addSequential(new DriveStraightDistance(distance,.5)); 
+    	addSequential(new DriveStraightDistance(distance,.25)); 
 
     
     	//addSequential(new MoveWrist(angle));

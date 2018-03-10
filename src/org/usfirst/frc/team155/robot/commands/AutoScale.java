@@ -21,7 +21,7 @@ private int angle;
     	else if(side==2) {
     		angle= -90;
     	}
-    	addSequential(new DriveStraightDistance(distance,.5));
+    	addSequential(new DriveStraightDistance(distance,.25));
     	addSequential(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
     //	addSequential(new ExtendWrist());
     //	addSequential(new MoveWrist(angle));

@@ -21,22 +21,26 @@ public class Autonomous extends CommandGroup {
 	private double autoSpeed = .25;
 
 	// /1 vtick == 18.9in
-	// .64 ticks == 12 in
-private double driveMultiplier = .065;
+	// .64 ticks == 12 l
+	
+	//to switch = 140
+	//switch is about 12 feet long and 4 feet wid
+	// prev drive multiplier -  .065
+private double driveMultiplier = .722;
 	///////////////////////////////////////////////////////////// assuming 360
 	private final double BEYONDBOX = (120*driveMultiplier); // 120*19.1; // 120 in
 	// switch width = 12ft
 	private final double SCALEDIST = (270*driveMultiplier);// (270*19.1); //15.3; 270in
 	// distance to middle of switch - 18(toposition) - robot(40)
-	private final double BETWEENDIST = (210*driveMultiplier);// (210*19.1); //11.1; 210
+	private final double BETWEENDIST = (220*driveMultiplier);// (210*19.1); //11.1; 210
 	// halfway between scale and switch
-	private final double BACKTOSWITCH = (12*driveMultiplier);// (12*19.1); // 12 in
+	private final double BACKTOSWITCH = (18*driveMultiplier);// (12*19.1); // 12 in
 
 	private final double SWITCHDIST = (100*driveMultiplier);// (; //100
 
 	/// 140 to switch - length of robot (40)
 	private final double PILEDIST = (48*driveMultiplier); // (48*19.1); // 48 in
-	private final double OTHERSWITCH = (108*driveMultiplier); // (108*19.1); //108 in
+	private final double OTHERSWITCH = (86*driveMultiplier); // (108*19.1); //108 in
 	// distance from midpoint to midpoint of switch plates
 
 	/////////////////////////////////////////////////////////// asssuming 90
