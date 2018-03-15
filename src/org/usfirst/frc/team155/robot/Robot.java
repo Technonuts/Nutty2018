@@ -23,6 +23,7 @@ import org.usfirst.frc.team155.robot.commands.TankDrive;
 
 import org.usfirst.frc.team155.robot.commands.ToPosition;
 import org.usfirst.frc.team155.robot.commands.readForDelay;
+import org.usfirst.frc.team155.robot.commands.startClimbing;
 import org.usfirst.frc.team155.robot.subsystems.Claw;
 import org.usfirst.frc.team155.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team155.robot.subsystems.Elevator;
@@ -277,6 +278,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("gyro", drivetrain.getGyro());
 		SmartDashboard.putNumber("left dist", drivetrain.leftEncoder.getDistance());
 		SmartDashboard.putNumber("right dist", drivetrain.rightEncoder.getDistance());
+		if(Robot.elevator.getClimbSwitch()) {
+			new startClimbing();
+		}
 		
 	}
 	

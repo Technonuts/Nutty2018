@@ -80,6 +80,8 @@ public class RobotMap {
     public static DigitalInput elevatorSwitchHigh;
     public static DigitalInput elevatorSwitchLow;
     
+    public static DigitalInput hangingSwitch;
+    
 
     //2 speed controller and 2 pneumatic actuators for gripper
     
@@ -161,6 +163,8 @@ public class RobotMap {
         
         elevatorSwitchLow = new DigitalInput      (9);
         LiveWindow.addSensor       ("Elevator", "Elevator Switch Low", elevatorSwitchLow);
+        hangingSwitch = new DigitalInput     (10);
+        LiveWindow.addSensor("Elevator", "Hanging Switch", hangingSwitch);
         
        
         

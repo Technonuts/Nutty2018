@@ -130,7 +130,7 @@ public class Claw extends PIDSubsystem {
 	}
 
 	public boolean extendWrist() {
-		// we want to make sure that the wrist only extends when the height is equal or
+		// we want to make sure that the wrist onlyB extends when the height is equal or
 		// below fence height
 		//if (Robot.elevator.getHeight() <= RobotMap.FENCEHEIGHT)
 			wrist.set(DoubleSolenoid.Value.kReverse);
