@@ -165,12 +165,12 @@ private double driveMultiplier = .722;
 
 		// System.out.println("Mode=Switch Mode");
 		// robot is in the center and switch is on our side
-		if (switchValue == side) {
+		if (switchValue == 2) {
 			// System.out.println("Switch our side");
 			// run switch command
-			addSequential(new DriveStraightDistance(SWITCHDIST-(28*driveMultiplier), autoSpeed));
-			addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
-			addSequential(new ExtendWrist());
+			addSequential(new DriveStraightDistance(6.5, autoSpeed));
+			//addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
+			
 			addSequential(new SpittingCube());
 			addSequential(new RetractWrist());
 			// get another cube
@@ -194,14 +194,14 @@ private double driveMultiplier = .722;
 			// run other switch command
 			// addSequential(new ToPosition());
 			// add
-			addSequential(new DriveStraightDistance(SWITCHDIST-(37*driveMultiplier), autoSpeed));
-			addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
+			addSequential(new DriveStraightDistance(3, autoSpeed));
+			//addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
 			 addSequential(new TurnDriveAngle(-90, autoSpeed)); 
 			 addSequential(new DriveStraightDistance(OTHERSWITCH, autoSpeed));
 			 
 			 addSequential(new TurnDriveAngle(0, autoSpeed));
-			 addSequential(new DriveStraightDistance(( 9*driveMultiplier), autoSpeed));
-			 addSequential(new ExtendWrist());
+			 addSequential(new DriveStraightDistance(( 3.5), autoSpeed));
+			 //addSequential(new ExtendWrist());
 			 addSequential(new SpittingCube());
 			 addSequential(new RetractWrist());
 			//////////////////// or//////////////////////////////////////////////////////////////

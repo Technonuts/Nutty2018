@@ -95,7 +95,7 @@ public class RobotMap {
     // one encoder tick is equal to 12.6 inches
     //assuming 360
 	public static final double FLOORHEIGHT = 0;
-	public static final double FENCEHEIGHT = 8647.;//2.4;
+	public static final double FENCEHEIGHT = 2.4;
 	public static final double LOWSCALEHEIGHT = 1719;//4.8;
 	public static final double HIGHSCALEHEIGHT = 2407;  
 			 //6.7;

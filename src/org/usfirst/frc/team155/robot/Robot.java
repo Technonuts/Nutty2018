@@ -91,7 +91,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		Robot.drivetrain.lowSpeed();
+		
 		robotmap = new RobotMap();
 		robotmap.init();
 		
@@ -102,7 +102,7 @@ public class Robot extends TimedRobot {
 		claw = new Claw();
 		elevator = new Elevator();
 	//	SmartDashboard.putData(elevator);
-		
+		Robot.drivetrain.lowSpeed();
 
 		oi = new OI();
 
@@ -227,7 +227,7 @@ public class Robot extends TimedRobot {
 		} */
 		// main autonomous method
 		//m_autonomousCommand = (Command) new Autonomous( mode, side, autoDelay, scaleValue, switchValue);
-		//m_autonomousCommand = (Command) new Autonomous( side, 0, scaleValue, switchValue);
+		m_autonomousCommand = (Command) new Autonomous( side, 0, scaleValue, switchValue);
 		//m_autonomousCommand = (Command) new DriveStraightDistance(6.5,.5);
 		
 		m_autonomousCommand.start();

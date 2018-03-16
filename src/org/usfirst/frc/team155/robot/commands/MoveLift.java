@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *   
  */
 public class MoveLift extends Command {
 
