@@ -18,7 +18,7 @@ public class Autonomous extends CommandGroup {
 	 * scaleSwitchMode = 6;
 	 */
 	private double angle = 0;
-	private double autoSpeed = .25;
+	private double autoSpeed = .281;
 
 	// /1 vtick == 18.9in
 	// .64 ticks == 12 l
@@ -36,7 +36,7 @@ private double driveMultiplier = .722;
 	// halfway between scale and switch
 	private final double BACKTOSWITCH = (18*driveMultiplier);// (12*19.1); // 12 in
 
-	private final double SWITCHDIST = (128*driveMultiplier);// (; //100
+	private final double SWITCHDIST = 6.5;//(128*driveMultiplier);// (; //100
 
 	/// 140 to switch - length of robot (40)
 	private final double PILEDIST = (48*driveMultiplier); // (48*19.1); // 48 in
@@ -92,7 +92,7 @@ private double driveMultiplier = .722;
 				// System.out.println("Scale Side = our side");
 				// run switch comman
 				// System.out.println("toposition");
-				addSequential(new AutoSwitch(side, SWITCHDIST));
+				addSequential(new AutoSwitch(side, 8.5));
 				// System.out.println("autoscale");
 				// do we want to get another cube
 				/*
@@ -146,16 +146,16 @@ private double driveMultiplier = .722;
 			else {
 				// System.out.println("Switch and scale side = not our side");
 				// cross line
-				addSequential(new DriveStraightDistance(BETWEENDIST, autoSpeed));
-				addSequential(new TurnDriveAngle(angle, autoSpeed));
-				addSequential(new DriveStraightDistance(BEYONDBOX, autoSpeed));
-				addSequential(new TurnDriveAngle(angle + angle, autoSpeed));
-				addParallel (new MoveLift(RobotMap.FENCEHEIGHT));
+				addSequential(new DriveStraightDistance(6.5, autoSpeed));
+				//addSequential(new TurnDriveAngle(angle, autoSpeed));
+				//addSequential(new DriveStraightDistance(BEYONDBOX, autoSpeed));
+				//addSequential(new TurnDriveAngle(angle + angle, autoSpeed));
+				//addParallel (new MoveLift(RobotMap.FENCEHEIGHT));
 
-				addSequential(new DriveStraightDistance(BACKTOSWITCH, autoSpeed));
-				addParallel(new ExtendWrist());
-				addSequential(new SpittingCube());
-				addSequential(new RetractWrist());
+				//addSequential(new DriveStraightDistance(BACKTOSWITCH, autoSpeed));
+				//addParallel(new ExtendWrist());
+				//addSequential(new SpittingCube());
+				//addSequential(new RetractWrist());
 			}
 		}
 	
@@ -168,7 +168,7 @@ private double driveMultiplier = .722;
 		if (switchValue == 2) {
 			// System.out.println("Switch our side");
 			// run switch command
-			addSequential(new DriveStraightDistance(6.5, autoSpeed));
+			addSequential(new DriveStraightDistance(6, .15));
 			//addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
 			
 			addSequential(new SpittingCube());
@@ -196,11 +196,12 @@ private double driveMultiplier = .722;
 			// add
 			addSequential(new DriveStraightDistance(3, autoSpeed));
 			//addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
-			 addSequential(new TurnDriveAngle(-90, autoSpeed)); 
-			 addSequential(new DriveStraightDistance(OTHERSWITCH, autoSpeed));
+			 addSequential(new TurnDriveAngle(-90, .75)); 
+			 addSequential(new DriveStraightDistance(5.5, autoSpeed));
 			 
-			 addSequential(new TurnDriveAngle(0, autoSpeed));
+			 addSequential(new TurnDriveAngle(0, .75));
 			 addSequential(new DriveStraightDistance(( 3.5), autoSpeed));
+			 //addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
 			 //addSequential(new ExtendWrist());
 			 addSequential(new SpittingCube());
 			 addSequential(new RetractWrist());

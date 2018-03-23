@@ -103,24 +103,24 @@ public class OI {
 		int direction = switches.getPOV(0);
 
 		if (direction == 90) { // DPAD UP button is pressed
-		  new OLDMoveWrist(90);
+		  //new OLDMoveWrist(90);
 		} 
 		else if (direction == 45) { // DPAD DOWN button is pressed
 		  // do something else
-			  new OLDMoveWrist(45);
+			//  new OLDMoveWrist(45);
 		}
 		else if (direction == 0) { // DPAD DOWN button is pressed
 			  // do something else
-			  new OLDMoveWrist(0);
+			 // new OLDMoveWrist(0);
 			  
 			}
 		else if (direction == 315) { // DPAD DOWN button is pressed
 			  // do something else
-			  new OLDMoveWrist(-45);
+			 // new OLDMoveWrist(-45);
 			}
 		else if (direction == 270) { // DPAD DOWN button is pressed
 			  // do something else
-			  new OLDMoveWrist(-90);
+			 // new OLDMoveWrist(-90);
 			}
 		
 
@@ -181,10 +181,10 @@ public class OI {
 		//liftButtonFloor.whenPressed(new MoveLift(RobotMap.FLOORHEIGHT));
 
 		liftButtonLowScale = new JoystickButton(switches, 4);
-		//liftButtonLowScale.whenPressed(new MoveLift(RobotMap.LOWSCALEHEIGHT));
+		//liftButtonLowScale.whenPressed(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
 
 		liftButtonHighScale = new JoystickButton(switches, 5);
-		//liftButtonHighScale.whenPressed(new MoveLift(RobotMap.HIGHSCALEHEIGHT));
+		//liftButtonHighScale.whenPressed(new Hangmode());
 
 		climbButton = new JoystickButton(switches, 6);
 		climbButton.whenPressed(new  startClimbing());

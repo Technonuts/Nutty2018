@@ -66,7 +66,7 @@ public class DriveStraightDistance extends Command {
 	protected void execute() {
 
 		// System.out.println("straight drive ex");
-		m_error = m_distance - Robot.drivetrain.getRightEncoder().getDistance();
+		m_error = m_distance - Robot.drivetrain.getLeftEncoder().getDistance();
 		/*
 		 * System.out.println("merror=" + m_error); System.out.println("mdistancer=" +
 		 * m_distance); System.out.println("encoder=" +
@@ -125,7 +125,7 @@ public class DriveStraightDistance extends Command {
 	@Override
 	protected void end() {
 		Robot.drivetrain.stop();
-		Timer.delay(.1);
+		Timer.delay(.5);
 
 	}
 

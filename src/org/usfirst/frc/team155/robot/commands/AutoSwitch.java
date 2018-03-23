@@ -23,14 +23,15 @@ private int angle;
     	if(side==2) 
     		angle=-90;
     	
-    	addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
-    	addSequential(new DriveStraightDistance(distance,.25)); 
+    	
+    	addSequential(new DriveStraightDistance(distance,.15)); 
 
     
     	//addSequential(new MoveWrist(angle));
-    	addSequential(new TurnDriveAngle(angle,.5));
-    	//addSequential(new DriveStraightDistance(distance,.25));
-    	addSequential(new ExtendWrist());
+    	addSequential(new TurnDriveAngle(angle,.75));
+    	//addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
+    	addSequential(new DriveStraightDistance(1.5,.25));
+    	//addSequential(new ExtendWrist());
     	addSequential(new SpittingCube());
     	addSequential(new RetractWrist());
     	//addSequential(new DriveStraightDistance(-1,.5));

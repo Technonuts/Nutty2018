@@ -95,11 +95,11 @@ public class RobotMap {
     // one encoder tick is equal to 12.6 inches
     //assuming 360
 	public static final double FLOORHEIGHT = 0;
-	public static final double FENCEHEIGHT = 2.4;
-	public static final double LOWSCALEHEIGHT = 1719;//4.8;
-	public static final double HIGHSCALEHEIGHT = 2407;  
+	public static final double FENCEHEIGHT = .5;
+	public static final double LOWSCALEHEIGHT = 1;//4.8;
+	public static final double HIGHSCALEHEIGHT = 2;  
 			 //6.7;
-	public static final double HANGHEIGHT = 2579.62;//7.2;
+	public static final double HANGHEIGHT = 2;//7.2;
    
     
 //>>>>>>> branch 'master' of https://github.com/Technonuts/Nutty2018.git
