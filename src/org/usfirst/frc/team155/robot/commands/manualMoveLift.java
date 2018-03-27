@@ -27,7 +27,7 @@ public class manualMoveLift extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(!Robot.elevator.getHighLimit()&& Robot.oi.switches.getAxis(Joystick.AxisType.kY)>0) {
+    	if(Robot.elevator.getHighLimit()&& Robot.oi.switches.getAxis(Joystick.AxisType.kY)>0) {
     		return true;
     	}
     	else if(Robot.elevator.getLowLimit()&& Robot.oi.switches.getAxis(Joystick.AxisType.kY)<0 ) {

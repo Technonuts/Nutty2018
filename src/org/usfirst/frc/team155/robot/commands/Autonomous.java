@@ -9,7 +9,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class Autonomous extends CommandGroup {
-
+	public double autoStart;
+	autoStart = Robot.drivetrain.getTime();
 	/*
 	 * private int leftValue = 0; private int centerValue = 1; private int
 	 * rightValue = 2; private int scaleMode = 0; private int switchMode = 1;
@@ -17,7 +18,6 @@ public class Autonomous extends CommandGroup {
 	 * twoSwitchMode = 4; private int switchScaleMode = 5; private int
 	 * scaleSwitchMode = 6;
 	 */
-	private double angle = 0;
 	private double autoSpeed = .281;
 
 	// /1 vtick == 18.9in
@@ -76,6 +76,9 @@ private double driveMultiplier = .722;
 		if (side == 2) {
 			angle = -90;
 		}
+		if (side == 3) {
+			angle = 0;
+		}
 		// addSequential(new DriveStraightDistance(3,.4));
 		// addSequential(new TurnDriveAngle(180,autoSpeed)); // actual angle = 180
 		// addSequential(new DriveStraightDistance(3,.4));
@@ -84,6 +87,7 @@ private double driveMultiplier = .722;
 		
 		addSequential(new RetractWrist());
 		
+	
 		// if the robot is on the left or on the right
 		if (side == 0 || side == 2) {
 			// System.out.println("Mode=Edge Mode");
@@ -106,7 +110,7 @@ private double driveMultiplier = .722;
 			    	addSequential(new MoveWrist(angle));
 			    	addSequential(new SpittingCube());
 				 */
-
+				
 
 			}
 
@@ -141,12 +145,11 @@ private double driveMultiplier = .722;
 				}*/
 				// System.out.println("autoswitch");
 
-			
-
-			else {
-				// System.out.println("Switch and scale side = not our side");
+			 {
+				 System.out.println("Switch and scale side = not our side, Drive Straight");
 				// cross line
 				addSequential(new DriveStraightDistance(6.5, autoSpeed));
+				
 				//addSequential(new TurnDriveAngle(angle, autoSpeed));
 				//addSequential(new DriveStraightDistance(BEYONDBOX, autoSpeed));
 				//addSequential(new TurnDriveAngle(angle + angle, autoSpeed));
@@ -194,13 +197,13 @@ private double driveMultiplier = .722;
 			// run other switch command
 			// addSequential(new ToPosition());
 			// add
-			addSequential(new DriveStraightDistance(3, autoSpeed));
+			addSequential(new DriveStraightDistance(2.5, autoSpeed));
 			//addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
 			 addSequential(new TurnDriveAngle(-90, .75)); 
 			 addSequential(new DriveStraightDistance(5.5, autoSpeed));
 			 
 			 addSequential(new TurnDriveAngle(0, .75));
-			 addSequential(new DriveStraightDistance(( 3.5), autoSpeed));
+			 addSequential(new DriveStraightDistance(( 4), autoSpeed));
 			 //addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
 			 //addSequential(new ExtendWrist());
 			 addSequential(new SpittingCube());

@@ -36,6 +36,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 //import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -74,7 +75,6 @@ public class Robot extends TimedRobot {
 	private int position;
 	private int oneBox = 1;
 	private int twoBox = 2;
-
 
 
 	public static OI oi;
@@ -128,8 +128,7 @@ public class Robot extends TimedRobot {
 		sideChooser.addDefault("Left", leftValue);   //0
 		sideChooser.addObject("Center", centerValue);  //1
 		sideChooser.addObject("Right", rightValue);    //2
-	/*	sideChooser.addObject("Left Wall", 3);
-		sideChooser.addObject("Right Wall", 4);  */
+		//sideChooser.addObject("Right Wall", 4);  */
 		SmartDashboard.putData("side Chooser", sideChooser);
 
 		delayChooser = new SendableChooser();
@@ -162,9 +161,14 @@ public class Robot extends TimedRobot {
 
 
 	@Override
+
 	public void autonomousInit() {
+		
+
+		DriverStation.getInstance();
 		Robot.drivetrain.setBrakeMode();
 	Robot.drivetrain.resetGyro();
+	
 
 		
 		
@@ -248,7 +252,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		Robot.drivetrain.resetGyro();
+		sRobot.drivetrain.resetGyro();
 		Robot.drivetrain.setCoastMode();
 		Robot.claw.stopCube();
 		//new OpenCube();
