@@ -29,7 +29,7 @@ public class LEDChanger extends CommandGroup {
     			 ard_0=new DigitalOutput(robotSystem.ARDUINO_0); 
     			 ard_1=new DigitalOutput(robotSystem.ARDUINO_1); 
     			 ard_2=new DigitalOutput(robotSystem.ARDUINO_2);
-    			 ard_2=new DigitalOutput(robotSystem.ARDUINO_3);
+    			 ard_3=new DigitalOutput(robotSystem.ARDUINO_3);
     			robot = robotSystem;
     			drive = driveSystem;
     			shooter = shooterSystem;
@@ -39,8 +39,7 @@ public class LEDChanger extends CommandGroup {
     		 
     		}
     		
-    		v
-    		  
+    		    		  
     		public void modeSelect(){ 
     			  int total=0;
     			

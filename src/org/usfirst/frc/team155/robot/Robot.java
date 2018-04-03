@@ -255,7 +255,7 @@ public class Robot extends TimedRobot {
 		Robot.robotmap.clawMode = 0;
 		Robot.robotmap.speedMode = 0;
 		Robot.robotmap.climbMode = 0;
-		sRobot.drivetrain.resetGyro();
+		Robot.drivetrain.resetGyro();
 		Robot.drivetrain.setCoastMode();
 		Robot.claw.stopCube();
 		//new OpenCube();

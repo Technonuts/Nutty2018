@@ -18,7 +18,7 @@ public class startClimbing extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.robotmap.climbMode = 0;
+		Robot.robotmap.climbMode = 1;
 		RobotMap.elevatorLeftHanger.setSpeed(1);
 		RobotMap.elevatorRightHanger.setSpeed(1);
 
