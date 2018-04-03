@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
@@ -81,6 +82,15 @@ public class RobotMap {
     public static DigitalInput elevatorSwitchLow;
     
     public static DigitalInput hangingSwitch;
+    public static DigitalOutput ard_0;
+    public static DigitalOutput ard_1;
+    public static DigitalOutput ard_2;
+    
+   public int speedMode;
+   public int clawMode;
+   public int climbMode;
+   
+    
     
 
     //2 speed controller and 2 pneumatic actuators for gripper
@@ -166,7 +176,7 @@ public class RobotMap {
         hangingSwitch = new DigitalInput     (10);
         LiveWindow.addSensor("Elevator", "Hanging Switch", hangingSwitch);
         
-       
+       ard_0 = new Digital
         
             
         drivetrainCompressor1 = new Compressor    (1);

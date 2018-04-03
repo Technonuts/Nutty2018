@@ -17,6 +17,7 @@ public class SpittingCube extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.robotmap.clawMode = 1;
     	Robot.claw.closeGripper();
     	Robot.claw.spitCube();
     	

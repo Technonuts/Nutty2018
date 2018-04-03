@@ -79,6 +79,7 @@ public class OI {
 	public JoystickButton driveTest;
 	public JoystickButton turn90;
 	public JoystickButton turnother90;
+	public JoystickButton reverseDrive;
 
 
 
@@ -190,6 +191,9 @@ public class OI {
 		climbButton.whenPressed(new  startClimbing());
 		//climbButton.whenPressed(new RetractWrist());
 		climbButton.whenReleased(new stopClimbing());
+		
+		reverseDrive  = new JoystickButton(switches, 8);  //change number
+		reverseDrive.whenPressed(new TankDriveReverse());
 
 
 		//driveTest = new JoystickButton(switches, 9);     //change number

@@ -10,6 +10,7 @@
 
 package org.usfirst.frc.team155.robot.subsystems;
 
+import org.usfirst.frc.team155.robot.Robot;
 import org.usfirst.frc.team155.robot.RobotMap;
 import org.usfirst.frc.team155.robot.commands.TankDrive;
 import java.util.*;
@@ -82,6 +83,9 @@ public class Drivetrain extends Subsystem {
 		robotDrive4.tankDrive(left, right);
 	}
 
+	public void tankDrivejoyReverse(Joystick left, Joystick right) {
+		robotDrive4.tankDrive(-left,- right);
+	}
 	public void tankDrivejoyGyro(double left, double right) {
 		robotDrive4.tankDrive(left, right);
 	}
@@ -107,10 +111,12 @@ public class Drivetrain extends Subsystem {
 
 	public void highSpeed() {
 		speedSolenoid.set(DoubleSolenoid.Value.kReverse);
+		Robot.robotmap.speedMode = 1;
 	}
 
 	public void lowSpeed() {
 		speedSolenoid.set(DoubleSolenoid.Value.kForward);
+		Robot.robotmap.speedMode = 0;
 	}
 
 	public Encoder getLeftEncoder() {
@@ -160,6 +166,9 @@ public class Drivetrain extends Subsystem {
 		leftDrive2.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
 		rightDrive1.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
 		rightDrive2.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+	}
+
+		
 	}
 
 	

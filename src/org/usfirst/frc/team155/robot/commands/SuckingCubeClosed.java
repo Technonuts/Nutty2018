@@ -18,6 +18,7 @@ public class SuckingCubeClosed extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.robotmap.clawMode = 4;
     	System.out.println("SuckS");
     	Robot.claw.suckCube();
     	Robot.claw.closeGripper();
@@ -70,6 +71,7 @@ public class SuckingCubeClosed extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.robotmap.clawMode = 2;
     	//System.out.println("SuckF");
     	//new HoldCube();
     }

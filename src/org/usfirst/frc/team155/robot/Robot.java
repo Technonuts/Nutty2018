@@ -252,6 +252,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		Robot.robotmap.clawMode = 0;
+		Robot.robotmap.speedMode = 0;
+		Robot.robotmap.climbMode = 0;
 		sRobot.drivetrain.resetGyro();
 		Robot.drivetrain.setCoastMode();
 		Robot.claw.stopCube();
