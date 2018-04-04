@@ -71,7 +71,7 @@ public class SuckingCube extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.robotmap.clawMode = 2;
+    	Robot.robotmap.clawMode = 1;
     	//System.out.println("SuckF");
     	//new HoldCube();
     }
