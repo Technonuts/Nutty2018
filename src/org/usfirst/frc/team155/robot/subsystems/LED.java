@@ -51,28 +51,28 @@ public class LED extends Subsystem {
 			setColorMode(0); //disabled
 			break; 
 		case 1: 
-			setColorMode(1); //Low Holding
+			setColorMode(4); //Low Holding
 			break; 
 		case 2: 
-			setColorMode(2); //High Holding
+			setColorMode(3); //High Holding
 			break; 
 		case 3://Low Sucking Open
-			setColorMode(3);
+			setColorMode(8);
 			break; 
 		case 4: // High Sucking Open
-			setColorMode(4);
+			setColorMode(7);
 			break; //
 		case 5: //Low Sucking Closed
-			setColorMode(5);
-			break; // 
-		case 6: // High Sucking Closed
 			setColorMode(6);
 			break; // 
+		case 6: // High Sucking Closed
+			setColorMode(5);
+			break; // 
 		case 7: // Low spitting
-			setColorMode(7); 
+			setColorMode(2); 
 			break;
 		case 8: // High Spitting
-			setColorMode(8); 
+			setColorMode(1); 
 			break;
 		case 9: //Climbing
 			setColorMode(9); 
@@ -80,81 +80,78 @@ public class LED extends Subsystem {
 		case 10: //Climbing
 			setColorMode(9); 
 			break;
-			//
-
 		}
-
 	}
 
 	public void setColorMode(int colormode){ //System.out.println("colormode =" + (colormode)); 
 		switch (colormode){ 
-		case 0: //no ball Orange?
+		case 0: //no disabled
 			ard_0.set(false); 
 			ard_1.set(false); 
 			ard_2.set(false);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 0"); 
 			break; 
-		case 1: //have ball Blue?
+		case 1: //low speed
 			ard_0.set(true); 
 			ard_1.set(false); 
 			ard_2.set(false); //
-			ard_3.set(true);
+			ard_3.set(false);
 			//System.out.println("trying 1"); 
 			break; 
 		case 2: //shooter not up to speed ---Flashing Blue
 			ard_0.set(false); 
 			ard_1.set(true); 
 			ard_2.set(false); 
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 2"); 
 			break; 
 		case 3: //shooter up to speed and have ball ---Green
 			ard_0.set(true); 
 			ard_1.set(true); 
 			ard_2.set(false);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 3"); 
 			break; 
 		case 4: //shooter up to speed and no ball ---Orange Flashing----Red
 			ard_0.set(false); 
 			ard_1.set(false); 
 			ard_2.set(true);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			System.out.println("trying 4"); 
 			break; 
 		case 5: //shooter on and no ball  Orange Flashing----Red
 			ard_0.set(true); 
 			ard_1.set(false); 
 			ard_2.set(true);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 5"); 
 			break; 
 		case 6: //climb mode-  Party Mode
 			ard_0.set(false); 
 			ard_1.set(true); 
 			ard_2.set(true);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 6"); 
 			break; 
 		case 7: //disabled  Knightrider mode
 			ard_0.set(true); 
 			ard_1.set(true); 
 			ard_2.set(true);
-			ard_3.set(true);//
+			ard_3.set(false);//
 			//System.out.println("trying 7"); 
 			break;
 		case 8: //disabled  Knightrider mode
-			ard_0.set(true); 
-			ard_1.set(true); 
-			ard_2.set(true);
+			ard_0.set(false); 
+			ard_1.set(false); 
+			ard_2.set(false);
 			ard_3.set(true);//
 			//System.out.println("trying 7"); 
 			break;
 		case 9: //disabled  Knightrider mode
 			ard_0.set(true); 
-			ard_1.set(true); 
-			ard_2.set(true);
+			ard_1.set(false); 
+			ard_2.set(false);
 			ard_3.set(true);//
 			//System.out.println("trying 7"); 
 			break;

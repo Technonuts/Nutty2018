@@ -27,6 +27,7 @@ import org.usfirst.frc.team155.robot.commands.startClimbing;
 import org.usfirst.frc.team155.robot.subsystems.Claw;
 import org.usfirst.frc.team155.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team155.robot.subsystems.Elevator;
+import org.usfirst.frc.team155.robot.subsystems.LED;
 
 import edu.wpi.first.wpilibj.CameraServer;
 
@@ -78,7 +79,8 @@ public class Robot extends TimedRobot {
 
 
 	public static OI oi;
-	public static Drivetrain drivetrain;
+	public static Drivetrain drivetrain; 
+	public static LED led;
 	public static Claw claw;
 	public static Elevator elevator;
 	public static RobotMap robotmap;
@@ -274,6 +276,7 @@ public class Robot extends TimedRobot {
 	//
 	@Override
 	public void teleopPeriodic() {
+		Robot.led.modeSelect();
 		Scheduler.getInstance().run();
 		//this resets the elevator encoder to 0
         elevator.resetLow();
@@ -290,6 +293,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("left dist", drivetrain.leftEncoder.getDistance());
 		SmartDashboard.putNumber("right dist", drivetrain.rightEncoder.getDistance());
 		SmartDashboard.putBoolean("Hanger Switch", elevator.getClimbSwitch());
+		
 		
 	}
 	

@@ -177,14 +177,16 @@ private double driveMultiplier = .722;
 			addSequential(new SpittingCube());
 			addSequential(new RetractWrist());
 			// get another cube
-			/*
-			 * addSequential(new DriveStraightDistance(-1, autoSpeed)); addSequential(new
-			 * TurnDriveAngle(-90, autoSpeed)); addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
-			 * addSequential(new DriveStraightDistance(PILEDIST, autoSpeed)); addParallel(new
-			 * CubeAquire()); addSequential(new DriveStraightDistance(-PILEDIST, autoSpeed));
-			 * addSequential(new TurnDriveAngle(0, autoSpeed)); addSequential(new
-			 * DriveStraightDistance(1, autoSpeed)); addSequential(new SpittingCube()); //three
-			 * cube addSequential(new DriveStraightDistance(-1, autoSpeed)); addSequential(new
+			 addSequential(new DriveStraightDistance(-.5, autoSpeed)); 
+			 addSequential(new TurnDriveAngle(-90, autoSpeed)); 
+			 addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
+			 addSequential(new DriveStraightDistance(2.06, autoSpeed));
+			 addParallel(new CubeAquire());
+			 addSequential(new DriveStraightDistance(-2.06, autoSpeed));
+			 addSequential(new TurnDriveAngle(0, autoSpeed));
+			 addSequential(new DriveStraightDistance(.5, autoSpeed));
+			 addSequential(new SpittingCube()); //three
+			/* cube addSequential(new DriveStraightDistance(-1, autoSpeed)); addSequential(new
 			 * TurnDriveAngle(-90, autoSpeed)); addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
 			 * addSequential(new DriveStraightDistance(PILEDIST, autoSpeed)); addParallel(new
 			 * CubeAquire()); addSequential(new DriveStraightDistance(-PILEDIST, autoSpeed));

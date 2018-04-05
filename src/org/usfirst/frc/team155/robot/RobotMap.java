@@ -93,8 +93,8 @@ public static DigitalOutput ard_1;
 public static DigitalOutput ard_2;
 public static DigitalOutput ard_3;
 
-   public int speedMode;
-   public int clawMode;
+   public int speedMode = 0;
+   public int clawMode = 0;
    public int climbMode;
    
     
