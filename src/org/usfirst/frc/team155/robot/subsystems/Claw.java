@@ -122,11 +122,12 @@ public class Claw extends PIDSubsystem {
 
 	public void openGripper() {
 		gripperSolenoid.set(DoubleSolenoid.Value.kForward);
+		Robot.led.LEDclaw(1);
 	}
 
 	public void closeGripper() {
 		gripperSolenoid.set(DoubleSolenoid.Value.kReverse);
-
+		Robot.led.LEDclaw(0);
 	}
 
 	public boolean extendWrist() {
@@ -147,16 +148,19 @@ public class Claw extends PIDSubsystem {
 	public void spitCube() {
 		clawLeftMotor.set(-SPITSPEED);
 		clawRightMotor.set(SPITSPEED);
+		Robot.led.LEDmotor(2);
 	}
 
 	public void suckCube() {
 		clawLeftMotor.set(-SUCKSPEED);
 		clawRightMotor.set(SUCKSPEED);
+		Robot.led.LEDmotor(1);
 	}
 
 	public void stopCube() {
 		clawLeftMotor.set(0);
 		clawRightMotor.set(0);
+		Robot.led.LEDmotor(0);
 	}
 
 	public double readCubeSensor() {

@@ -21,6 +21,7 @@ public class startClimbing extends Command {
 		Robot.robotmap.clawMode = 9;
 		RobotMap.elevatorLeftHanger.setSpeed(-1);
 		RobotMap.elevatorRightHanger.setSpeed(-1);
+		Robot.led.LEDhanger(1);
 
 	}
 
@@ -37,6 +38,7 @@ public class startClimbing extends Command {
 	protected void end() {
 		RobotMap.elevatorLeftHanger.setSpeed(0);
 		RobotMap.elevatorRightHanger.setSpeed(0);
+		Robot.led.LEDhanger(1);
 	}
 
 	// Called when another command which requires one or more of the same
@@ -44,5 +46,6 @@ public class startClimbing extends Command {
 	protected void interrupted() {
 		RobotMap.elevatorLeftHanger.setSpeed(0);
 		RobotMap.elevatorRightHanger.setSpeed(0);
+		Robot.led.LEDhanger(1);
 	}
 }

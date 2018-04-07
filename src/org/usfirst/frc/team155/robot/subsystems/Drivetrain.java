@@ -81,6 +81,8 @@ public class Drivetrain extends Subsystem {
 
 	public void tankDrivejoy(Joystick left, Joystick right) {
 		robotDrive4.tankDrive(left, right);
+		Robot.led.LEDdirection(0);
+		
 	}
 
 	public void tankDrivejoyReverse(Joystick left,  Joystick right) {
@@ -88,6 +90,7 @@ public class Drivetrain extends Subsystem {
 		
 	//	robotDrive4.setLeftRightMotorOutputs(rangeDistance, rightOutput);
 		robotDrive4.tankDrive(-right.getY(), -left.getY());
+		Robot.led.LEDdirection(1);
 	}
 	public void tankDrivejoyGyro(double left, double right) {
 		robotDrive4.tankDrive(left, right);
@@ -115,11 +118,14 @@ public class Drivetrain extends Subsystem {
 	public void highSpeed() {
 		speedSolenoid.set(DoubleSolenoid.Value.kReverse);
 		Robot.robotmap.speedMode = 1;
+		Robot.led.LEDspeed(1);
 	}
 
 	public void lowSpeed() {
 		speedSolenoid.set(DoubleSolenoid.Value.kForward);
 		Robot.robotmap.speedMode = 0;
+		Robot.led.LEDspeed(0);
+		
 	}
 
 	public Encoder getLeftEncoder() {

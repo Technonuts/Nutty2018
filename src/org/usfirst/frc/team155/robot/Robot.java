@@ -152,6 +152,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit(){
+		Robot.led.LEDdisable(0);
 		//test
 		//making another test
 	}
@@ -159,13 +160,14 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 	//	Scheduler.getInstance().run();
+		Robot.led.LEDdisable(0);
 	}
 
 
 	@Override
 
 	public void autonomousInit() {
-		
+		Robot.led.LEDdisable(1);
 
 		DriverStation.getInstance();
 		Robot.drivetrain.setBrakeMode();
@@ -249,6 +251,7 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		//System.out.println("Here1");
 		Scheduler.getInstance().run();
+		Robot.led.LEDdisable(1);
 		
 	}
 
@@ -268,6 +271,7 @@ public class Robot extends TimedRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null) autonomousCommand.cancel();
 		new TankDrive();
+		Robot.led.LEDdisable(1);
 	}
 
 	/**
@@ -294,7 +298,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("right dist", drivetrain.rightEncoder.getDistance());
 		SmartDashboard.putBoolean("Hanger Switch", elevator.getClimbSwitch());
 		
-		
+		Robot.led.LEDdisable(1);
 	}
 	
 }

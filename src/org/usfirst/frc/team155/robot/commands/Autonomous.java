@@ -3,14 +3,15 @@ package org.usfirst.frc.team155.robot.commands;
 import org.usfirst.frc.team155.robot.Robot;
 import org.usfirst.frc.team155.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
 public class Autonomous extends CommandGroup {
-	public double autoStart;
-	autoStart = Robot.drivetrain.getTime();
+	private double autoStart;
+	public int clock=0;
 	/*
 	 * private int leftValue = 0; private int centerValue = 1; private int
 	 * rightValue = 2; private int scaleMode = 0; private int switchMode = 1;
@@ -62,14 +63,16 @@ private double driveMultiplier = .722;
 	// public Autonomous(int mode, int side, double autoDelay, int scaleValue, int
 	// switchValue) {
 	public Autonomous(int side, double autoDelay, int scaleValue, int switchValue) {
-
-
-
+		if (clock == 0) {
+		autoStart = Timer.getFPGATimestamp();
+		clock=1;
+		}
 
 
 
 		// System.out.println("Here2");
 		// position 0 = left, 1 = center, 2=right
+		/*
 		if (side == 0) {
 			angle = 90;
 		}
@@ -79,6 +82,7 @@ private double driveMultiplier = .722;
 		if (side == 3) {
 			angle = 0;
 		}
+		*/
 		// addSequential(new DriveStraightDistance(3,.4));
 		// addSequential(new TurnDriveAngle(180,autoSpeed)); // actual angle = 180
 		// addSequential(new DriveStraightDistance(3,.4));
@@ -97,6 +101,10 @@ private double driveMultiplier = .722;
 				// run switch comman
 				// System.out.println("toposition");
 				addSequential(new AutoSwitch(side, 8.5));
+				
+				if (Timer.getFPGATimestamp() >= autoStart + 10) {
+					addParallel(new SpittingCube());
+	    			}
 				// System.out.println("autoscale");
 				// do we want to get another cube
 				/*
@@ -173,8 +181,12 @@ private double driveMultiplier = .722;
 			// run switch command
 			addSequential(new DriveStraightDistance(6, .15));
 			//addSequential(new MoveLift(RobotMap.FENCEHEIGHT));
-			
+			if (Timer.getFPGATimestamp() >= autoStart + 10) {
+				addParallel(new SpittingCube());
+    			}
 			addSequential(new SpittingCube());
+			
+			/*
 			addSequential(new RetractWrist());
 			// get another cube
 			 addSequential(new DriveStraightDistance(-.5, autoSpeed)); 
@@ -186,6 +198,7 @@ private double driveMultiplier = .722;
 			 addSequential(new TurnDriveAngle(0, autoSpeed));
 			 addSequential(new DriveStraightDistance(.5, autoSpeed));
 			 addSequential(new SpittingCube()); //three
+			 */
 			/* cube addSequential(new DriveStraightDistance(-1, autoSpeed)); addSequential(new
 			 * TurnDriveAngle(-90, autoSpeed)); addSequential(new MoveLift(RobotMap.FLOORHEIGHT));
 			 * addSequential(new DriveStraightDistance(PILEDIST, autoSpeed)); addParallel(new
@@ -208,8 +221,11 @@ private double driveMultiplier = .722;
 			 addSequential(new DriveStraightDistance(( 4), autoSpeed));
 			 //addParallel(new MoveLift(RobotMap.FENCEHEIGHT));
 			 //addSequential(new ExtendWrist());
+			 if (Timer.getFPGATimestamp() >= autoStart + 13) {
+					addParallel(new SpittingCube());
+	    			}
 			 addSequential(new SpittingCube());
-			 addSequential(new RetractWrist());
+			 //addSequential(new RetractWrist());
 			//////////////////// or//////////////////////////////////////////////////////////////
 			/*
 			 * addSequential(new DriveStraightDistance(SWITCHDIST, autoSpeed)); addSequential(new

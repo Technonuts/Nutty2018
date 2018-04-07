@@ -79,9 +79,9 @@ public class OI {
 	public JoystickButton driveTest;
 	public JoystickButton turn90;
 	public JoystickButton turnother90;
+	public JoystickButton tankDrive;
 	public JoystickButton reverseDrive;
 	
-
 
 
 	public static RobotMap robotmap;
@@ -137,6 +137,12 @@ public class OI {
 
 		lowSpeedButton = new JoystickButton(rightStick, 1);
 		lowSpeedButton.whenPressed(new LowSpeed());
+		
+		tankDrive  = new JoystickButton(leftStick, 4);  //change number
+		tankDrive.whenPressed(new TankDrive());
+		
+		reverseDrive  = new JoystickButton(leftStick, 5);  //change number
+		reverseDrive.whenPressed(new ReverseTankDrive());
 
 		
 		closeCubeButton = new JoystickButton(rightStick, 6);
@@ -193,8 +199,7 @@ public class OI {
 		//climbButton.whenPressed(new RetractWrist());
 		climbButton.whenReleased(new stopClimbing());
 		
-		reverseDrive  = new JoystickButton(switches, 8);  //change number
-		reverseDrive.whenPressed(new changeDriveDirection());
+		
 
 
 		//driveTest = new JoystickButton(switches, 9);     //change number
